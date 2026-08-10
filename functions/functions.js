@@ -65,8 +65,10 @@ console.log(value);
 //or not
 
 function checkUserAge(age) { 
-    if (age > 18) {
-        return "User is Eligible for vote";
+    if(age < 1){
+        return "Invalid Data";
+    } else if (age > 18) {
+        return "User is eligible for vote";
     } else { 
         return "User is not eligible for vote";
     }
