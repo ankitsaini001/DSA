@@ -30,3 +30,36 @@ function incLoopByTwo() {
     }
 }
 incLoopByTwo();
+
+// Reverse Loop
+function reverseLoop() { 
+    for (let i = 5; i > 0; i--) { 
+        console.log("HW " + " " + i);
+    }
+}
+reverseLoop();
+
+function looping() { 
+    for (let i = 5; i < 4; i++) { 
+        console.log("HWW");
+    }
+}
+looping();
+
+ // Infinite Loop
+// function infinite() { 
+//     for (let i = 1; i > 0; i++) { 
+//         console.log("Hwwww");
+//     }
+// }
+// infinite();
+
+// call a function inside a loop
+
+function greet(x) { 
+    console.log("Namasate!" + " " + x);
+}
+
+for (let i = 0; i < 5; i++) { 
+    greet(i);
+}
