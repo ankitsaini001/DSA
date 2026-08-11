@@ -88,3 +88,48 @@ function isEven(number) {
     }
 }
 isEven(2);isEven(3);isEven(4);isEven(5);isEven(6);
+
+// Q1. Sum of two numbers
+
+// Write a function sum(a, b) that returns the sum.
+
+function sum(a, b) {
+    let result = a + b;
+    return result;   
+}
+let value = sum(10, 20);
+console.log(value);
+
+// Q2. Check even or odd
+
+// Write a function isEven(n) that returns true if n is even and false otherwise.
+
+function isEven(x) { 
+    if (x % 2 === 0) {
+        console.log("Value is Even");
+    } else { 
+        console.log("Value is Odd");
+    }
+}
+isEven(10); // true
+isEven(7);  // false
+
+// Q3. Find the largest number
+
+// Write a function findMax(a, b, c) that returns the largest of the three numbers.
+
+function findMax(a,b,c){
+    let max;
+    if (a>b) {
+        max = a;
+    }else{
+        max=b;
+    }
+    if (max > c) {
+        return max;
+    }else{
+        return c;
+    }
+}
+console.log(findMax(10, 25, 15)); // 25
+console.log(findMax(50, 20, 30)); // 50
