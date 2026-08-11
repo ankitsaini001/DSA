@@ -70,3 +70,12 @@ let arr = [10, 20, 30, 40, 50, 60];
 for (let i = 0; i < arr.length; i++){
     console.log(arr[i]);
 }
+
+// print all the even number
+for (let i = 0; i < arr.length; i++) { 
+    if (arr[i] % 2 == 0) {
+        console.log("Value: " + " " + arr[i] + " is Even");
+    } else { 
+        console.log("Value: " + " " + arr[i] + " is Odd");
+    }
+}
