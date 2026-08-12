@@ -277,3 +277,15 @@ function searchElement() {
     }
 }
 searchElement();
+
+function search(arrSearch, value) {
+    // let value = 40;
+    for (let i = 0; i < arrSearch.length; i++) {
+        if (arrSearch[i] === value) {
+            return i;
+        } 
+    }
+    return -1;
+}
+console.log(search(arrSearch, 30));
+console.log(search(arrSearch, 10));
