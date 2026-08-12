@@ -289,3 +289,20 @@ function search(arrSearch, value) {
 }
 console.log(search(arrSearch, 30));
 console.log(search(arrSearch, 10));
+
+//return the number and value of negative numbers in an array
+function checkNumberType(arr) { 
+    let count = 0;
+    let values = [];
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] < 0) { 
+            count++;
+            values.push(arr[i]);
+        }
+    }
+    return {
+        count: count,
+        values: values
+    };
+}
+console.log(checkNumberType(arrSearch));
