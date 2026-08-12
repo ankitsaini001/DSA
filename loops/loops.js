@@ -249,3 +249,31 @@ function reverseNumber(n) {
 console.log(reverseNumber(12345)); // 54321
 console.log(reverseNumber(123));   // 321
 console.log(reverseNumber(1200));  // 21
+
+// loops+ array
+
+let arrSearch = [10, 20, 30, 40, 50];
+
+function searchElement() { 
+    let value = 40;
+    for (let i = 1; i < arrSearch.length; i++) { 
+        if (arrSearch[i] === value) {
+            console.log(i);
+        }
+    }
+}
+searchElement();
+
+// loops+ array
+
+let arrSearch = [10, 20, 30, 40, 50];
+
+function searchElement() { 
+    let value = 40;
+    for (let i = 1; i < arrSearch.length; i++) { 
+        if (arrSearch[i] === value) {
+            console.log(i);
+        }
+    }
+}
+searchElement();
