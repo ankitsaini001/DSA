@@ -177,3 +177,75 @@ function countDivisibleBy3(n) {
 }
 
 console.log(countDivisibleBy3(10));
+
+//count even number
+function countEvenNumbers(n) {
+    let num = 0;
+    for (let i = 1; i <= n; i++) {
+        if (i % 2 === 0) {
+            num++;
+        }
+    }
+    return num;
+}
+
+console.log(countEvenNumbers(10)); // 5
+console.log(countEvenNumbers(20)); // 10
+console.log(countEvenNumbers(7));  // 3
+
+// sum of odd numbers
+function sumOddNumbers(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        if (i % 2 !== 0) {
+            sum = sum + i;
+        }
+    }
+    return sum;
+}
+
+console.log(sumOddNumbers(10)); // 25
+console.log(sumOddNumbers(5));  // 9
+console.log(sumOddNumbers(1));  // 1
+
+//factorial
+function factorial(n) {
+    let value = 1;
+    for (let i = 1; i <= n; i++) {
+        value = value * i;
+    }
+    return value;
+}
+
+console.log(factorial(5)); // 120
+console.log(factorial(4)); // 24
+console.log(factorial(3)); // 6
+console.log(factorial(1)); // 1
+
+//Find the sum of digits
+function sumOfDigits(n) {
+    let sum = 0;
+    while(n>0){
+        let digit = n%10;
+        sum = sum+digit;
+        n = Math.floor(n / 10);
+    }
+    return sum;
+}
+sumOfDigits(1234); // 10
+sumOfDigits(567);  // 18
+sumOfDigits(9);    // 9
+
+function reverseNumber(n) {
+    let reverse = 0;
+    while(n>0){
+        let digit=n%10;
+        reverse=reverse*10+digit;
+        n=Math.floor(n/10);
+    }
+    return reverse;
+}
+
+console.log(reverseNumber(12345)); // 54321
+console.log(reverseNumber(123));   // 321
+console.log(reverseNumber(1200));  // 21
