@@ -335,3 +335,40 @@ function countOdd(arr) {
     return count;
 }
 console.log(countOdd(arr));
+
+//Find all numbers greater than 20
+let arrGreater = [10, 25, 15, 40, 30, 5];
+function greaterThan20(arr) {
+    let count = 0;
+    let value = [];
+
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] > 20) { 
+            count++;
+            value.push(arr[i]);
+        }
+    }
+    return {
+        count: count,
+        values:value
+    }
+}
+console.log(greaterThan20(arrGreater));
+
+// Count occurrences
+
+let arrCount = [10, 20, 10, 30, 10, 40];
+
+function countNumber(arr, value) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] === value) { 
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(countNumber(arrCount, 10)); // 3
+console.log(countNumber(arrCount, 20)); // 1
+console.log(countNumber(arrCount, 50)); // 0
