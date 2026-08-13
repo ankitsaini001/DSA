@@ -372,3 +372,17 @@ function countNumber(arr, value) {
 console.log(countNumber(arrCount, 10)); // 3
 console.log(countNumber(arrCount, 20)); // 1
 console.log(countNumber(arrCount, 50)); // 0
+
+let arrSmallNumber = [10, 5, 20, 3, 15];
+
+function findMin(arr) {
+    let min = arr[0];
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] < min) { 
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+console.log(findMin(arrSmallNumber));
