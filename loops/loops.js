@@ -386,3 +386,16 @@ function findMin(arr) {
 }
 
 console.log(findMin(arrSmallNumber));
+
+//Write a program to print all even numbers from an array.
+let arrEve = [10, 3, 5, 2, 7, 6, 9];
+function printEvenNumbers(arr){
+    let value = [];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i]%2===0){
+            value.push(arr[i]);
+        }
+    }
+    return value;
+}
+console.log(printEvenNumbers(arrEve));
