@@ -306,3 +306,32 @@ function checkNumberType(arr) {
     };
 }
 console.log(checkNumberType(arrSearch));
+
+//Count even numbers
+
+let arr = [10, 15, 20, 25, 30, 33];
+
+// Return the number of even numbers
+function countEven(arr) {
+    let count=0;
+    for(let i = 0; i<arr.length;i++){
+        if(arr[i]%2==0){
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(countEven(arr));
+
+// Return the number of odd numbers
+function countOdd(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] % 2 !== 0) { 
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countOdd(arr));
