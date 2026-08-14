@@ -399,3 +399,15 @@ function printEvenNumbers(arr){
     return value;
 }
 console.log(printEvenNumbers(arrEve));
+
+// write a function that return the largest number in an array
+function largestNumber(arr) { 
+    let num = arr[0];
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] > num) { 
+            num = arr[i];
+        }
+    }
+    return num;
+}
+console.log(largestNumber(arrEve));

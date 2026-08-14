@@ -173,17 +173,3 @@ function checkNumberEvenOdd(num){
 }
 console.log(checkNumberEvenOdd(18));
 console.log(checkNumberEvenOdd(5));
-
-
-
-// write a function that return the largest number in an array
-function largestNumber(arr) { 
-    let num = arr[0];
-    for (let i = 0; i < arr.length; i++) { 
-        if (arr[i] > num) { 
-            num = arr[i];
-        }
-    }
-    return num;
-}
-console.log(largestNumber(arrEve));
