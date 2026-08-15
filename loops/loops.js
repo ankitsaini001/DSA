@@ -412,3 +412,55 @@ function largestNumber(arr) {
     return num;
 }
 console.log(largestNumber(arrEve));
+
+// write a function that return the Smallest number in an array
+
+function smallestNumber(arr) { 
+    let num = arr[0];
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] < num) { 
+            num = arr[i];
+        }
+    }
+    return num;
+}
+console.log(smallestNumber(arrEve));
+
+// Write a function that returns the number of negative numbers in an array.
+let arrNegative = [2, -6, 4, 8, 1, -9];
+
+function countNegativeNumber(arr) { 
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] < 0) { 
+            count++;
+        }
+    }
+    return count;
+
+}
+console.log(countNegativeNumber(arrNegative));
+
+//Write a function that returns the smallest number in an array.
+function findSmallestNumber(arr) { 
+    let min = arr[0];
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] < min) { 
+            min = arr[i];
+        }
+    }
+    return min;
+}
+console.log(findSmallestNumber(arrNegative));
+
+//Write a function that returns the largest number in an array.
+function findLargestNumber(arr) { 
+    let max = arr[0];
+    for (let i = 0; i < arr.length; i++) { 
+        if (arr[i] > max) { 
+            max = arr[i];
+        }
+    }
+    return max;
+}
+console.log(findLargestNumber(arrNegative));
