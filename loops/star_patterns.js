@@ -16,11 +16,19 @@ for (let i = 0; i < n; i++){
     console.log(row);
 }
 
+// for (let i = 0; i <= n; i++) { 
+//     let row = "";
+//     let count = 1;
+//     for (let j = 0; j <= i; j++){
+//         row = row + (count++);
+//     }
+//     console.log(row);
+// }
+
 for (let i = 0; i <= n; i++) { 
     let row = "";
-    let count = 1;
     for (let j = 0; j <= i; j++){
-        row = row + (count++);
+        row = row + (j+1);
     }
     console.log(row);
 }
