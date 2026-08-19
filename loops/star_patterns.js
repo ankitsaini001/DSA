@@ -62,3 +62,14 @@ function printSquare(n) {
 
 printSquare(3);
 
+let nstar = 5;
+for (let i = 0; i < nstar; i++) { 
+    let row = "";
+    for (let j = 0; j < nstar - (i + 1); j++){
+        row = row + " ";
+    }
+    for (let k = 0; k < i + 1; k++) { 
+        row = row + "*";
+    }
+    console.log(row);
+}
