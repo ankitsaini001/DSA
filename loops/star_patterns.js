@@ -147,3 +147,15 @@ for(let i = 0; i<nxn;i++){
     }
     console.log(row);
 }
+
+//Print a Right-Aligned Right-Angled Triangle of Stars
+for (let i = 0; i < nxn; i++) {
+    let row = "";
+    for (let j = 0; j < nxn - (i + 1); j++) {
+        row = row + " ";
+    }
+    for (let k = 0; k < i + 1; k++) {
+        row = row + "*";
+    }
+    console.log(row);
+}
