@@ -102,3 +102,13 @@ for (let i = 0; i < nstar; i++) {
     }
     console.log(row);
 }
+
+// Pattern 1: Print nxn Star Square
+let nxn = 5;
+for (let i = 0; i < nxn; i++) {
+    let row = "";
+    for (let j = 0; j < nxn; j++) {
+        row = row + "*";
+    }
+    console.log(row);
+}
