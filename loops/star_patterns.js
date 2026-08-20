@@ -112,3 +112,12 @@ for (let i = 0; i < nxn; i++) {
     }
     console.log(row);
 }
+
+// Pattern 2: Right-Angled Star Triangle
+for(let i=0; i<nxn; i++){
+    let row="";
+    for(let j=0; j<i; j++){
+        row = row + "*";
+    }
+    console.log(row);
+}
