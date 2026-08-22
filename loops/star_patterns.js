@@ -226,3 +226,12 @@ for(let i = 0; i < nxn; i++){
     }
     console.log(row);
 }
+
+// right angle number triangle
+for (let i = 0; i < n; i++) { 
+    let row = "";
+    for (let j = 0; j <= i; j++) { 
+        row += j + 1;
+    }
+    console.log("Star Right Angle Number Pattern " + row);
+}
