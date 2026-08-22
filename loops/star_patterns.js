@@ -253,3 +253,15 @@ for (let i = 0; i < nxn; i++) {
     }
     console.log("Reverse Increasing Numbers " + row);
 }
+
+// Print a Right-Aligned Right-Angled Triangle of Stars
+for (let i = 0; i < nxn; i++) {
+    let row = "";
+    for (let j = 0; j < nxn - (i+1); j++) {
+        row += "_";
+    }
+    for (let k = 0; k < i + 1; k++) { 
+        row += "*";
+    }
+    console.log("Right-Aligned Right-Angled Triangle of Stars " + row);
+}
