@@ -228,10 +228,19 @@ for(let i = 0; i < nxn; i++){
 }
 
 // right angle number triangle
-for (let i = 0; i < n; i++) { 
+for (let i = 0; i < nxn; i++) { 
     let row = "";
     for (let j = 0; j <= i; j++) { 
         row += j + 1;
     }
     console.log("Star Right Angle Number Pattern " + row);
+}
+
+// Print a Right-Angled Triangle of Repeated Numbers
+for (let i = 0; i < nxn; i++) {
+  let row = "";
+  for (let j = 0; j <= i; j++) {
+    row += (i + 1);
+  }
+  console.log("Print a Right-Angled Triangle of Repeated Numbers " + row);
 }
