@@ -208,3 +208,12 @@ for (let i = 0; i < n; i++) {
   }
   console.log(row);
 }
+
+// star pattern
+for (let i = 0; i < nxn; i++) { 
+    let row = "";
+    for (let j = 0; j < nxn; j++) { 
+        row = row + "*";
+    }
+    console.log("Star Pattern " +  row);
+}
