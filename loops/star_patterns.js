@@ -265,3 +265,18 @@ for (let i = 0; i < nxn; i++) {
     }
     console.log("Right-Aligned Right-Angled Triangle of Stars " + row);
 }
+
+// Print a Right-Angled Triangle of Alternating 1s and 0s
+for (let i = 0; i < nxn; i++){
+    let row = "";
+    let toggle = 1;
+    for (let j = 0; j <= i; j++) { 
+        row += toggle;
+        if (toggle === 1) {
+            toggle = 0;
+        } else { 
+            toggle = 1;
+        }
+    }
+    console.log("toggle: " + row);
+}
