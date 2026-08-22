@@ -244,3 +244,12 @@ for (let i = 0; i < nxn; i++) {
   }
   console.log("Print a Right-Angled Triangle of Repeated Numbers " + row);
 }
+
+// Print a Reverse Right-Angled Triangle of Increasing Numbers
+for (let i = 0; i < nxn; i++) { 
+    let row = "";
+    for (let j = 0; j < nxn - i; j++) { 
+        row += j + 1;
+    }
+    console.log("Reverse Increasing Numbers " + row);
+}
