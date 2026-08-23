@@ -544,3 +544,37 @@ var secondHighest = function (s) {
 
 console.log(secondHighest("dfa12321afd")); 
 console.log(secondHighest("abc1111")); 
+
+// return the count of elements strictly less then zero
+function countNegatives(arr) {
+  // implement your solution here
+  if (!Array.isArray(arr)) {
+    return false;
+  }
+  if (arr.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) { 
+    if (!Number.isFinite(arr[i])) {
+      return false;
+    }
+    if (arr[i] < 0) { 
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countNegatives([-1, 0, 1]));
+console.log(countNegatives([-2, -5, -7]));
+console.log(countNegatives([0, 2, 3]));
+console.log(countNegatives([]));
+console.log(countNegatives(null));
+console.log(countNegatives(undefined));
+console.log(countNegatives(42));
+console.log(countNegatives("8"));
+console.log(countNegatives({}));
+console.log(countNegatives(() => { }));
+
+module.exports = { countNegatives };
