@@ -513,3 +513,34 @@ function secondLargestRepeatedArray(arr) {
 console.log(secondLargestRepeatedArray(arrSecond));
 console.log(secondLargestRepeatedArray(arrSingle));
 console.log(secondLargestRepeatedArray(arrTwo));
+
+// alphanumeric string s, return the second largest numerical digit 
+var secondHighest = function (s) {
+    let letters = Array.from(s);
+    let numericArr = [];
+
+    for (let i = 0; i < letters.length; i++) {
+        if (letters[i] >= '0' && letters[i] <= '9') {
+            numericArr.push(Number(letters[i]));
+        }
+    }
+
+    let firstLargest = -1;
+    let secondLargest = -1;
+
+    for (let j = 0; j < numericArr.length; j++) {
+        const num = numericArr[j];
+        if (num > firstLargest) {
+            secondLargest = firstLargest;
+            firstLargest = num;
+        } else if (num > secondLargest && num < firstLargest) {
+            secondLargest = num;
+        } else { 
+            return -1;
+        }
+    }
+    return secondLargest;
+};
+
+console.log(secondHighest("dfa12321afd")); 
+console.log(secondHighest("abc1111")); 
