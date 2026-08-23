@@ -603,3 +603,26 @@ console.log(findSmallest([3,1,2]));
 console.log(findSmallest([-5, 2, -3, 4]));
 console.log(findSmallest([0, 2, 3]));
 console.log(findSmallest([]));
+
+//Find Largest Number in an Array
+function findLargest(arr) {
+  // your solution here
+  if (!Array.isArray(arr)) {
+    return false;
+  }
+  if (arr.length === 0) { return null; }
+  let largestnumber = arr[0];
+  for (let i = 0; i < arr.length; i++){
+    if (!Number.isFinite(arr[i])) {
+      return false;
+    }
+    if (arr[i] > largestnumber) {
+      largestnumber = arr[i];
+    }
+  }
+  return largestnumber;
+}
+console.log(findLargest([3, 1, 2]));
+console.log(findLargest([-5, 2, -3, 4]));
+console.log(findLargest([0, 2, 3]));
+console.log(findLargest([]));
