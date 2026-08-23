@@ -578,3 +578,28 @@ console.log(countNegatives({}));
 console.log(countNegatives(() => { }));
 
 module.exports = { countNegatives };
+
+//Find Smallest Number in an Array
+function findSmallest(arr) {
+  // your solution here
+  if (!Array.isArray(arr)) {
+    return false;
+  }
+  if (arr.length === 0) {
+    return null;
+  }
+  let smallnumber = arr[0];
+  for (let i = 0; i < arr.length; i++){
+    if (!Number.isFinite(arr[i])) {
+      return false;
+    }
+    if (arr[i] < smallnumber) {
+      smallnumber = arr[i];
+    }
+  }
+  return smallnumber;
+}
+console.log(findSmallest([3,1,2]));
+console.log(findSmallest([-5, 2, -3, 4]));
+console.log(findSmallest([0, 2, 3]));
+console.log(findSmallest([]));
