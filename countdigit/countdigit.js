@@ -21,3 +21,22 @@ while (n_count > 0) {
     count++;
 }
 console.log("count digit: " + count);
+
+// corner case: what if n=0;
+function countDigits(n){
+    if(n===0){
+        return 1;
+    }
+    let count = 0;
+    while(n>0){
+        n = Math.floor(n/10);
+        count++;
+    }
+    return count;
+}
+console.log(countDigits(1233));
+console.log(countDigits(123));
+console.log(countDigits(12));
+console.log(countDigits(1));
+console.log(countDigits(0));
+console.log(countDigits(-1));
