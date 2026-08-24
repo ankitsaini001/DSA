@@ -60,3 +60,20 @@ console.log(countDigits(12));
 console.log(countDigits(1));
 console.log(countDigits(0));
 console.log(countDigits(-1));
+
+// Write a function countDigits(n)that takes an integer n and returns how many digits it contains.
+function countDigitsCheck(n){
+    // handle corner cases as well
+    if(n === 0){
+        return 1;
+    }
+    n = Math.abs(n);
+    let count =0;
+    while(n>0){
+        n = Math.floor(n/10);
+        count++;
+    }
+    return count;
+}
+console.log(countDigitsCheck(1234567890));
+console.log(countDigitsCheck(-1234567890));
