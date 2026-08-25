@@ -39,3 +39,21 @@ function reverseNegative(n) {
 console.log(reverseNegative(-111));  // expect -111
 console.log(reverseNegative(123));   // expect 321
 console.log(reverseNegative(-120));  // expect -21
+
+// leetcode
+var reverse = function(x) {
+    // let create a copy of original value
+    let nCopy = x;
+    let rev = 0;
+    x = Math.abs(x);
+    // write loop
+    while(x > 0){
+        let rem = x % 10;
+        rev = (10 * rev) + rem;
+        x = Math.floor(x / 10);
+    }
+    return (nCopy < 0) ? -rev : rev;
+};
+console.log(reverse(123));
+console.log(reverse(-123));
+console.log(reverse(120));
