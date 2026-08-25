@@ -64,3 +64,4 @@ function palindromeReturnCall(n){
 }
 console.log(palindromeReturnCall(121));
 console.log(palindromeReturnCall(-121));
+console.log(palindromeReturnCall(10));
