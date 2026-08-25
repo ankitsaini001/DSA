@@ -76,7 +76,7 @@ var reverseDigit = function(x){
 
     // check the range as well
     let limit = Math.pow(2,31);
-    if(rev > limit || rev < limit-1){
+    if(rev < -limit || rev > limit){
         return 0;
     }
     return (nCopy < 0) ? -rev : rev;
