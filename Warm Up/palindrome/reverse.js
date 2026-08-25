@@ -42,14 +42,18 @@ console.log(reverseNegative(-120));  // expect -21
 
 // leetcode
 var reverse = function(x) {
-    // let create a copy of original value
     let nCopy = x;
     let rev = 0;
     x = Math.abs(x);
-    // write loop
-    while(x > 0){
+
+    while (x > 0) {
         let rem = x % 10;
         rev = (10 * rev) + rem;
+
+        if (rev > 2147483647) { // 2^31 - 1, the 32-bit signed int max
+            return 0;
+        }
+
         x = Math.floor(x / 10);
     }
     return (nCopy < 0) ? -rev : rev;
