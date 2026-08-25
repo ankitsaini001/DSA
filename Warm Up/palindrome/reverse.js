@@ -61,3 +61,29 @@ var reverse = function(x) {
 console.log(reverse(123));
 console.log(reverse(-123));
 console.log(reverse(120));
+
+var reverseDigit = function(x){
+    let nCopy = x;
+    let rev = 0;
+    x = Math.abs(x);
+
+    // run while loop
+    while(x > 0){
+        let rem = x % 10;
+        rev = (10 * rev) + rem;
+        x = Math.floor(x / 10);
+    }
+
+    // check the range as well
+    let limit = Math.pow(2,31);
+    if(rev > limit || rev < limit-1){
+        return 0;
+    }
+    return (nCopy < 0) ? -rev : rev;
+}
+console.log(reverseDigit(123));
+console.log(reverseDigit(321));
+console.log(reverseDigit(-123));
+console.log(reverseDigit(-123));
+console.log(reverseDigit(1534236469));
+console.log(reverseDigit(0));
