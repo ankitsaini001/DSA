@@ -75,7 +75,10 @@ var reverseDigit = function(x){
     }
 
     // check the range as well
-    let limit = Math.pow(2,31);
+    //let limit = Math.pow(2,31);
+
+    // another way to calculate limit is:
+    let limit = 2**31;
     if(rev < -limit || rev > limit){
         return 0;
     }
