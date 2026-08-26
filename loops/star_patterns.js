@@ -1,16 +1,16 @@
 // star pattern
 let n = 4;
-for (let i = 0; i < n; i++){
+for (let i = 0; i < n; i++) {
     let row = "";
-    for (let j = 0; j < n; j++){
+    for (let j = 0; j < n; j++) {
         row = row + "*";
     }
     console.log(row);
 }
 
-for (let i = 0; i < n; i++){
+for (let i = 0; i < n; i++) {
     let row = "";
-    for (let j = 0; j <= i; j++) { 
+    for (let j = 0; j <= i; j++) {
         row = row + "*";
     }
     console.log(row);
@@ -25,35 +25,35 @@ for (let i = 0; i < n; i++){
 //     console.log(row);
 // }
 
-for (let i = 0; i <= n; i++) { 
+for (let i = 0; i <= n; i++) {
     let row = "";
-    for (let j = 0; j <= i; j++){
-        row = row + (j+1);
-    }
-    console.log(row);
-}
-
-// reverse pattern
-for (let i = 0; i < n; i++){
-    let row = "";
-    for (let j = 0; j < n - i; j++) { 
+    for (let j = 0; j <= i; j++) {
         row = row + (j + 1);
     }
     console.log(row);
 }
 
-for(let i = 0; i<n;i++){
+// reverse pattern
+for (let i = 0; i < n; i++) {
     let row = "";
-    for(let j=0; j<n-i;j++){
+    for (let j = 0; j < n - i; j++) {
+        row = row + (j + 1);
+    }
+    console.log(row);
+}
+
+for (let i = 0; i < n; i++) {
+    let row = "";
+    for (let j = 0; j < n - i; j++) {
         row = row + "*";
     }
     console.log(row);
 }
 
 function printSquare(n) {
-    for(let i=0; i<n;i++){
-    let row = "";
-        for(let j=0; j<n;j++){
+    for (let i = 0; i < n; i++) {
+        let row = "";
+        for (let j = 0; j < n; j++) {
             row = row + "*";
         }
         console.log(row);
@@ -63,26 +63,26 @@ function printSquare(n) {
 printSquare(3);
 
 let nstar = 5;
-for (let i = 0; i < nstar; i++) { 
+for (let i = 0; i < nstar; i++) {
     let row = "";
-    for (let j = 0; j < nstar - (i + 1); j++){
+    for (let j = 0; j < nstar - (i + 1); j++) {
         row = row + " ";
     }
-    for (let k = 0; k < i + 1; k++) { 
+    for (let k = 0; k < i + 1; k++) {
         row = row + "*";
     }
     console.log(row);
 }
 
 // switch pattern
-for (let i = 0; i < nstar; i++) { 
+for (let i = 0; i < nstar; i++) {
     let row = "";
     let pattern = 1;
-    for (let j = 0; j <= i; j++) { 
+    for (let j = 0; j <= i; j++) {
         row = row + pattern;
         if (pattern === 1) {
             pattern = 0;
-        } else { 
+        } else {
             pattern = 1;
         }
     }
@@ -90,15 +90,15 @@ for (let i = 0; i < nstar; i++) {
 }
 
 let toggle = 1;
-for (let i = 0; i < nstar; i++) { 
+for (let i = 0; i < nstar; i++) {
     let row = "";
     for (let j = 0; j <= i; j++) {
         row = row + toggle;
         if (toggle === 1) {
             toggle = 0;
-        } else { 
+        } else {
             toggle = 1;
-        }   
+        }
     }
     console.log(row);
 }
@@ -114,18 +114,18 @@ for (let i = 0; i < nxn; i++) {
 }
 
 // Pattern 2: Right-Angled Star Triangle
-for(let i=0; i<nxn; i++){
-    let row="";
-    for(let j=0; j<i; j++){
+for (let i = 0; i < nxn; i++) {
+    let row = "";
+    for (let j = 0; j < i; j++) {
         row = row + "*";
     }
     console.log(row);
 }
 
 // Pattern 3: Print a Right-Angled Number Triangle
-for(let i=0; i< nxn; i++){
-    let row="";
-    for(let j=0; j<i; j++){
+for (let i = 0; i < nxn; i++) {
+    let row = "";
+    for (let j = 0; j < i; j++) {
         row = row + "*";
     }
     console.log(row);
@@ -140,10 +140,10 @@ for (let i = 0; i < nxn; i++) {
 }
 
 // Pattern 5: Print a Reverse Right-Angled Triangle of Increasing Numbers
-for(let i = 0; i<nxn;i++){
+for (let i = 0; i < nxn; i++) {
     let row = "";
-    for(let j=0; j<nxn-i;j++){
-        row = row + (j+1);
+    for (let j = 0; j < nxn - i; j++) {
+        row = row + (j + 1);
     }
     console.log(row);
 }
@@ -162,75 +162,75 @@ for (let i = 0; i < nxn; i++) {
 
 let n = 4;
 for (let i = 0; i < n; i++) {
-  let row = "";
-  let toggle = 1;
-  for (let j = 0; j < i + 1; j++) {
-    row += toggle;
-    toggle = toggle === 1 ? 0 : 1;
-  }
-  console.log(row);
+    let row = "";
+    let toggle = 1;
+    for (let j = 0; j < i + 1; j++) {
+        row += toggle;
+        toggle = toggle === 1 ? 0 : 1;
+    }
+    console.log(row);
 }
 
 let n = 4;
 let toggle = 1;
 for (let i = 0; i < n; i++) {
-  let row = "";
-  for (let j = 0; j < i + 1; j++) {
-    row += toggle;
-    toggle = toggle === 1 ? 0 : 1;
-  }
-  console.log(row);
+    let row = "";
+    for (let j = 0; j < i + 1; j++) {
+        row += toggle;
+        toggle = toggle === 1 ? 0 : 1;
+    }
+    console.log(row);
 }
 
 let n = 4;
 for (let i = 0; i < n; i++) {
-  let row = "";
-  for (let j = 0; j < n; j++) {
-    row += "*";
-  }
-  console.log(row);
+    let row = "";
+    for (let j = 0; j < n; j++) {
+        row += "*";
+    }
+    console.log(row);
 }
 
 let n = 4;
 for (let i = 0; i < n; i++) {
-  let row = "";
-  for (let j = 0; j <= i; j++) {
-    row += "*";
-  }
-  console.log(row);
+    let row = "";
+    for (let j = 0; j <= i; j++) {
+        row += "*";
+    }
+    console.log(row);
 }
 
 let n = 4;
 for (let i = 0; i < n; i++) {
-  let row = "";
-  for (let j = 0; j <= i; j++) {
-    row += (j + 1);
-  }
-  console.log(row);
+    let row = "";
+    for (let j = 0; j <= i; j++) {
+        row += (j + 1);
+    }
+    console.log(row);
 }
 
 // star pattern
-for (let i = 0; i < nxn; i++) { 
+for (let i = 0; i < nxn; i++) {
     let row = "";
-    for (let j = 0; j < nxn; j++) { 
+    for (let j = 0; j < nxn; j++) {
         row = row + "*";
     }
-    console.log("Star Pattern " +  row);
+    console.log("Star Pattern " + row);
 }
 
 // right angle triangle
-for(let i = 0; i < nxn; i++){
+for (let i = 0; i < nxn; i++) {
     let row = "";
-    for(let j=0; j<=i; j++){
+    for (let j = 0; j <= i; j++) {
         row = row + "*";
     }
     console.log(row);
 }
 
 // right angle number triangle
-for (let i = 0; i < nxn; i++) { 
+for (let i = 0; i < nxn; i++) {
     let row = "";
-    for (let j = 0; j <= i; j++) { 
+    for (let j = 0; j <= i; j++) {
         row += j + 1;
     }
     console.log("Star Right Angle Number Pattern " + row);
@@ -238,17 +238,17 @@ for (let i = 0; i < nxn; i++) {
 
 // Print a Right-Angled Triangle of Repeated Numbers
 for (let i = 0; i < nxn; i++) {
-  let row = "";
-  for (let j = 0; j <= i; j++) {
-    row += (i + 1);
-  }
-  console.log("Print a Right-Angled Triangle of Repeated Numbers " + row);
+    let row = "";
+    for (let j = 0; j <= i; j++) {
+        row += (i + 1);
+    }
+    console.log("Print a Right-Angled Triangle of Repeated Numbers " + row);
 }
 
 // Print a Reverse Right-Angled Triangle of Increasing Numbers
-for (let i = 0; i < nxn; i++) { 
+for (let i = 0; i < nxn; i++) {
     let row = "";
-    for (let j = 0; j < nxn - i; j++) { 
+    for (let j = 0; j < nxn - i; j++) {
         row += j + 1;
     }
     console.log("Reverse Increasing Numbers " + row);
@@ -257,26 +257,39 @@ for (let i = 0; i < nxn; i++) {
 // Print a Right-Aligned Right-Angled Triangle of Stars
 for (let i = 0; i < nxn; i++) {
     let row = "";
-    for (let j = 0; j < nxn - (i+1); j++) {
+    for (let j = 0; j < nxn - (i + 1); j++) {
         row += "_";
     }
-    for (let k = 0; k < i + 1; k++) { 
+    for (let k = 0; k < i + 1; k++) {
         row += "*";
     }
     console.log("Right-Aligned Right-Angled Triangle of Stars " + row);
 }
 
 // Print a Right-Angled Triangle of Alternating 1s and 0s
-for (let i = 0; i < nxn; i++){
+for (let i = 0; i < nxn; i++) {
     let row = "";
     let toggle = 1;
-    for (let j = 0; j <= i; j++) { 
+    for (let j = 0; j <= i; j++) {
         row += toggle;
         if (toggle === 1) {
             toggle = 0;
-        } else { 
+        } else {
             toggle = 1;
         }
     }
     console.log("toggle: " + row);
 }
+
+// practice 1
+function printSquareTest(n) {
+    for (let i = 0; i < n; i++) {
+        let row = "";
+        for (let j = 0; j < n; j++) {
+            row = row + "*";
+        }
+
+        console.log(row);
+    }
+}
+printSquareTest(4);
