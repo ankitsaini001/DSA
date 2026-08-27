@@ -317,3 +317,15 @@ function printReverseTriangle(n){
     }
 }
 printReverseTriangle(5);
+
+// print pattern
+function printPattern(n){
+    for(let i=0; i<n; i++){
+        let row = "";
+        for(let j=0; j<2*i+1; j++){
+            row += "*";
+        }
+        console.log(row);
+    }
+}
+printPattern(5);
