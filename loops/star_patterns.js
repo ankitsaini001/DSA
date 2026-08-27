@@ -329,3 +329,18 @@ function printPattern(n){
     }
 }
 printPattern(5);
+
+//Next challenge: Right-aligned triangle
+function printRightTriangle(n) { 
+    for (let i = 0; i < n; i++) { 
+        let row = "";
+        for (let j = 0; j < n - (i + 1); j++) { 
+            row += " ";
+        }
+        for (let k = 0; k <= i; k++) { 
+            row += "*";
+        }
+        console.log(row);
+    }
+}
+printRightTriangle(5);
