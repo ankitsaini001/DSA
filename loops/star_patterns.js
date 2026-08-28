@@ -344,3 +344,22 @@ function printRightTriangle(n) {
     }
 }
 printRightTriangle(5);
+
+//printPyramid
+function printPyramid(n) {
+    for (let i = 0; i < n; i++) {
+        let row = "";
+
+        // Add spaces
+        for (let j = 0; j < n - (i + 1); j++) {
+            row += " ";
+        }
+
+        // Add stars
+        for (let k = 0; k < 2 * i + 1; k++) {
+            row += "*";
+        }
+
+        console.log(row);
+    }
+}
