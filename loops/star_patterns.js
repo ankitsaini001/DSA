@@ -364,3 +364,18 @@ function printPyramid(n) {
     }
 }
 printPyramid(5);
+
+//reverse pyramid
+function reversePyramid(n){
+	for(let i=0; i<n;i++){
+		let row = "";
+		for(let j=0; j<i; j++){
+			row += "";
+		}
+		for(let k=0; k < 2*(n-i)-1; k++){
+			row += "*";
+		}
+		console.log(row);
+}
+}
+reversePyramid(5);
