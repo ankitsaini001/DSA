@@ -363,3 +363,4 @@ function printPyramid(n) {
         console.log(row);
     }
 }
+printPyramid(5);
