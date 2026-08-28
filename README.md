@@ -7,6 +7,12 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | Date | Topic | Notes |
 |------|-------|-------|
 | 2026-08-10 | [Functions basics](functions/functions.js) | Console basics, value vs reference (arrays/objects), function declaration & reuse, return values, conditionals (`checkUserAge`), even/odd check |
+| 2026-08-11 – 2026-08-23 | [Loops](loops/loops.js) | `for`/`while` fundamentals, digit sum & reversal, factorial, and array practice — search, min/max, negative/even/odd counts, second-largest (with duplicates) |
+| 2026-08-16 – 2026-08-19 | [Nested loops](loops/loop_in_loop.js) | Loop-in-loop pair printing, triangular iteration, generating pairs from an array |
+| 2026-08-18 – 2026-08-28 | [Star & number patterns](loops/star_patterns.js) | Squares, right-angled & reverse triangles, right-aligned triangles, alternating 1/0 rows, pyramids & reverse pyramids |
+| 2026-08-24 | [Count digits](countdigit/countdigit.js) | Digit counting with corner cases: `n = 0` and negative numbers |
+| 2026-08-25 | [Palindrome check](Warm%20Up/palindrome/palindrome.js) | Negative-number handling, boolean-return refactor, LeetCode version |
+| 2026-08-25 – 2026-08-27 | [Reverse integer](Warm%20Up/palindrome/reverse.js) | Negative-number handling, LeetCode 32-bit signed overflow check |
 
 ## 📂 Structure
 
@@ -14,23 +20,30 @@ Each topic gets its own folder, named after the topic:
 
 ```
 DSA/
-├── functions/       # JS functions — declaration, params, return values, reuse
-├── arrays/          # (coming soon)
-├── strings/         # (coming soon)
-├── recursion/       # (coming soon)
-├── sorting/         # (coming soon)
-├── searching/        # (coming soon)
-├── linked-lists/     # (coming soon)
-├── stacks-queues/     # (coming soon)
-├── trees/            # (coming soon)
-├── graphs/           # (coming soon)
-└── dynamic-programming/ # (coming soon)
+├── functions/          # JS functions — declaration, params, return values, reuse
+├── loops/               # for/while, nested loops, array traversal, star & number patterns
+├── countdigit/           # digit-counting with corner cases (zero, negative)
+├── Warm Up/              # early practice snapshots, plus palindrome & reverse-integer work
+│   └── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
+├── arrays/               # (coming soon — dedicated topic; array basics so far live in loops/)
+├── strings/              # (coming soon)
+├── recursion/            # (coming soon)
+├── sorting/              # (coming soon)
+├── searching/            # (coming soon)
+├── linked-lists/         # (coming soon)
+├── stacks-queues/        # (coming soon)
+├── trees/                # (coming soon)
+├── graphs/               # (coming soon)
+└── dynamic-programming/  # (coming soon)
 ```
 
 ## ✅ Topics Covered
 
 - [x] Functions — basics, parameters, return values, reuse
-- [ ] Arrays
+- [x] Loops — `for`/`while`, nested loops, array traversal & searches
+- [x] Pattern printing — star/number triangles, pyramids, alternating patterns
+- [x] Digit manipulation — count digits, reverse integer, palindrome check
+- [ ] Arrays (as a dedicated topic)
 - [ ] Strings
 - [ ] Recursion
 - [ ] Sorting algorithms
@@ -53,4 +66,7 @@ Each file is plain Node.js — run any file directly:
 
 ```bash
 node functions/functions.js
+node loops/star_patterns.js
+node countdigit/countdigit.js
+node "Warm Up/palindrome/reverse.js"
 ```
