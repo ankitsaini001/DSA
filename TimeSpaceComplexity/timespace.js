@@ -11,9 +11,9 @@
 // before finding it (or reaching the end if it's not present)
 
 // number of steps (x) is directly proportional to n (size of the array):
-// n = 1000 -> x = 1000
+// n = 10   -> x = 10
 // n = 100  -> x = 100
-// n = 1    -> x = 1
+// n = 1000 -> x = 1000
 // { n times }
 
 // Time Complexity = O(n) -> "linear time" - work grows in direct proportion to n
@@ -43,8 +43,9 @@ console.log(linearSearch([2, 1, 3, 5, 4, 7], 5));
 // answer:
 //      x = log2(n)
 
-// n = 1000 -> x = log2(1000) ~ 10   (2^10 = 1024, close to 1000)
+// n = 10   -> x = log2(10)   ~ 3    (2^3  = 8, close to 10)
 // n = 100  -> x = log2(100)  ~ 7    (2^7  = 128, comfortably covers 100)
+// n = 1000 -> x = log2(1000) ~ 10   (2^10 = 1024, close to 1000)
 
 // Time Complexity = O(log n) -> "logarithmic time"
 // grows MUCH slower than O(n) as n increases:
@@ -74,10 +75,37 @@ function binarySearch(arr, target) {
 console.log(binarySearch([1, 3, 4, 7, 9, 10, 15], 15));
 
 
+// ===================== GRAPH: x (steps) vs n (input size) =====================
+
+// plot n on the x-axis and steps(x) on the y-axis, both scaled the same way
+// (10, 100, 1000, ... 1 Million):
+//
+//   x (steps)
+//   1M |                                              ,' linear search
+//      |                                          ,-'      (straight line, y = x)
+// 1000 |                                      ,-'
+//      |                                  ,-'
+//  100 |                              ,-'
+//      |                          ,-'
+//   10 |                      ,-' _______________________ binary search
+//      |                 ,-'  _--                          (barely rises, y = log2(x))
+//      +--------------------------------------------------------> n
+//           10        100        1000                  1M
+
+// Linear search   -> a straight diagonal line (slope 1, y = n). doubling n
+//                    doubles the steps, every time. it keeps climbing forever.
+// Binary search   -> looks almost flat next to it. it curves upward but so
+//                    slowly that it barely leaves the bottom of the graph.
+
+// the gap between the two lines is the whole point of Big-O:
+// n = 1,000,000       -> linear search ~ 1,000,000 steps
+//                     -> binary search ~ log2(1,000,000) ~ 20 steps
+// same data, ~50,000x fewer comparisons for binary search
+
 // ===================== SUMMARY =====================
 
-// Linear Search : O(n)     -> steps grow directly with n
-// Binary Search : O(log n) -> steps grow by halving n each time
+// Linear Search : O(n)     -> steps grow directly with n -> steep straight line
+// Binary Search : O(log n) -> steps grow by halving n each time -> near-flat curve
 // this is why binary search stays fast even as n gets huge, as long as
 // the array is sorted first
 
