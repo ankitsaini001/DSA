@@ -181,6 +181,31 @@ console.log(binarySearch(sortedArr, 100)); // worst case, not found
 //                  whether the array has 10 elements or 10 million
 
 // growth order, slowest to fastest growing (best to worst):
-//      O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(n^3) < O(2^n)
+//      O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)
+
+// ===================== THE BIG PICTURE: ALL COMPLEXITIES ON ONE GRAPH =====================
+// (the classic "Big-O complexity chart" - x-axis: n (input size) ->, y-axis: time/steps ^)
+
+//   time
+//    ^  O(n!)   O(2^n)   O(n^2)   O(n log n)
+//    |    |        |        |          |                              O(n)
+//    |    |        |        |          |                         ,-''
+//    |    |        |        |          |                    ,-''
+//    |    |        |        |         ,'               ,-''
+//    |    |        |       ,'        ,'           ,-''
+//    |    |       ,'      ,'        ,'       ,-''
+//    |   ,'      ,'      ,'       ,'    ,-''                    _____ O(log n)
+//    |  ,'      ,'      ,'      ,' ,-''-----------------------''
+//    | ,'     ,'      ,'    ,-''
+//    +----------------------------------------------------------------- O(1)
+//    +---------------------------------------------------------------------> n
+
+// from steepest (worst) to flattest (best), the curves rank as:
+//      O(n!)  >  O(2^n)  >  O(n^2)  >  O(n log n)  >  O(n)  >  O(log n)  >  O(1)
+
+// this is the same reference chart you'll see everywhere in DSA (often just
+// called "the Big-O complexity chart"). every algorithm's time complexity
+// lands on one of these curves, and "optimizing" an algorithm usually means
+// moving it to a flatter curve on this chart (fewer extra operations as n grows)
 
 // Space Complexity: TODO - haven't learnt this yet
