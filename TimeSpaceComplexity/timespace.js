@@ -142,4 +142,45 @@ console.log(binarySearch(sortedArr, 100)); // worst case, not found
 // this is why binary search stays fast even as n gets huge, as long as
 // the array is sorted first
 
+// ===================== OTHER COMMON TIME COMPLEXITIES =====================
+// (general patterns, not specific to search - these show up everywhere)
+
+// ----- O(n log n) -----
+// a loop that runs n times, where EACH iteration itself does something
+// that takes log n steps (e.g. a halving-style operation):
+//
+//      for (i = 0; i < n; i++) {    <- n times
+//          ... something log n ...  <- 1/2 x 1/2 x 1/2 ... -> log n
+//      }
+//
+// total work = n (outer loop) x log n (inner halving) = O(n log n)
+// this is exactly how algorithms like merge sort get their complexity
+
+// ----- O(n^3) -----
+// three nested loops, each running n times -> n x n x n = O(n^3)
+
+// ----- O(n^2) -----
+// two nested loops, each running n times -> n x n = O(n^2)
+// operation count grows as a perfect square of n:
+//      n = 2 -> 4  operations   (2 x 2)
+//      n = 3 -> 9  operations   (3 x 3)
+//      n = 4 -> 16 operations   (4 x 4)
+//      n = 5 -> 25 operations   (5 x 5)
+// NOTE: my source notes had this example labelled "O(2^n)", but the numbers
+// above (4, 9, 16, 25) match n^2, not 2^n (which would be 4, 8, 16, 32).
+// double check this bit against the video - this example looks like plain
+// O(n^2) from two nested loops. true O(2^n) (exponential) usually comes from
+// things like generating all subsets, or naive recursive Fibonacci.
+
+// ----- O(1) : constant time -----
+// unlike every complexity above (they all grow as n grows), O(1) means the
+// work stays the SAME no matter how big n is.
+// example: direct array index access
+//      arr = [ ...n elements... ]
+//      arr[5]   -> jumps straight to that memory slot in 1 operation,
+//                  whether the array has 10 elements or 10 million
+
+// growth order, slowest to fastest growing (best to worst):
+//      O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(n^3) < O(2^n)
+
 // Space Complexity: TODO - haven't learnt this yet
