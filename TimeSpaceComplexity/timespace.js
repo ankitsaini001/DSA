@@ -75,6 +75,37 @@ function binarySearch(arr, target) {
 console.log(binarySearch([1, 3, 4, 7, 9, 10, 15], 15));
 
 
+// ===================== BIG O NOTATION: BEST CASE vs WORST CASE =====================
+
+// Big O notation conventionally describes the WORST case - the upper bound
+// on how many steps an algorithm could possibly take.
+
+// ----- Linear Search -----
+// arr = [5, 6, 1, 0, 7]      (unsorted)
+// Best Case  -> search(5)    -> target is the very first element checked -> x = 1
+// Worst Case -> search(100)  -> target is missing / all the way at the end -> x = n
+// Big O = O(n)   (we always quote the worst case)
+
+console.log(linearSearch([5, 6, 1, 0, 7], 5));   // best case,  x = 1
+console.log(linearSearch([5, 6, 1, 0, 7], 100)); // worst case, x = n (not found)
+
+// ----- Binary Search -----
+// arr = [5, 8, 10, 15, 20]      (sorted)
+// Best Case  -> search(the middle element) -> found on the very first check -> x = 1
+// Worst Case -> search(100)                -> not found, halved all the way down -> x = log2(n)
+// Big O = O(log n)   (we always quote the worst case)
+
+let sortedArr = [5, 8, 10, 15, 20];
+console.log(binarySearch(sortedArr, sortedArr[Math.floor(sortedArr.length / 2)])); // best case, x = 1
+console.log(binarySearch(sortedArr, 100)); // worst case, not found
+
+// ----- "Binary Search >>>> Linear Search" in efficiency -----
+// comparing the WORST cases (what Big O actually reports):
+//      Linear Search worst case : O(n)
+//      Binary Search worst case : O(log n)
+// log n grows so much slower than n that binary search wins by a landslide
+// as the array gets bigger - that's the ">>>>" from the notes.
+
 // ===================== GRAPH: x (steps) vs n (input size) =====================
 
 // plot n on the x-axis and steps(x) on the y-axis, both scaled the same way
@@ -104,8 +135,10 @@ console.log(binarySearch([1, 3, 4, 7, 9, 10, 15], 15));
 
 // ===================== SUMMARY =====================
 
-// Linear Search : O(n)     -> steps grow directly with n -> steep straight line
-// Binary Search : O(log n) -> steps grow by halving n each time -> near-flat curve
+// Linear Search : O(n)     (worst case) -> steps grow directly with n -> steep straight line
+// Binary Search : O(log n) (worst case) -> steps grow by halving n each time -> near-flat curve
+// Big O always quotes the worst case - both algorithms have a best case of O(1)
+// (the target happens to be the very first element checked)
 // this is why binary search stays fast even as n gets huge, as long as
 // the array is sorted first
 
