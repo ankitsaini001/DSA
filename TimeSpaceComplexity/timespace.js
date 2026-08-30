@@ -208,4 +208,93 @@ console.log(binarySearch(sortedArr, 100)); // worst case, not found
 // lands on one of these curves, and "optimizing" an algorithm usually means
 // moving it to a flatter curve on this chart (fewer extra operations as n grows)
 
-// Space Complexity: TODO - haven't learnt this yet
+// ===================== SPACE COMPLEXITY =====================
+// (extra memory an algorithm needs, ON TOP OF the input itself, as n grows)
+
+// ----- Rule 1: a fixed number of scalar variables = O(1) space -----
+// doesn't matter if it's 1 variable or 20 (i, j, max, ...) - as long as the
+// COUNT of variables doesn't grow with n, it's constant ("O(1)") space
+
+function findMaxArray(arr) {
+    let max = arr[0]; // <- O(1) space: just one extra variable
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+console.log(findMaxArray([3, 7, 2, 9, 4])); // 9
+// Time  : O(n) -> one loop over n elements
+// Space : O(1) -> only ever holds one extra variable ("max"), regardless of n
+
+// ----- Rule 2: a new array of size n = O(n) space -----
+
+function doubleArray(arr) {
+    let newArray = new Array(arr.length); // <- allocates n new slots
+    for (let i = 0; i < arr.length; i++) {
+        newArray[i] = arr[i] * 2;
+    }
+    return newArray;
+}
+console.log(doubleArray([1, 2, 3, 4, 5])); // [2, 4, 6, 8, 10]
+// Time  : O(n) -> one loop over n elements
+// Space : O(n) -> the new array grows exactly as big as the input
+
+// ----- Rule 3: a new n x n structure (matrix) = O(n^2) space -----
+// e.g. building a matrix where row k = input array scaled by 2^k:
+//      input  = [1, 3, 2, 8, 10]                                  (n = 5)
+//      output = [ [1, 3, 2, 8, 10],
+//                 [2, 6, 4, 16, 20],
+//                 [4, 12, 8, 32, 40],
+//                 [8, 24, 16, 64, 80],
+//                 [16, 48, 32, 128, 160] ]           (n rows x n cols)
+// that output needs n*n extra cells -> O(n^2) extra space
+
+// ----- summary of the space rules -----
+//      fixed number of variables (i, j, max, ...) -> O(1)   constant space
+//      one new array sized n                      -> O(n)   linear space
+//      one new n x n matrix/table                 -> O(n^2) quadratic space
+
+// ===================== COMBINING LOOPS: ADD vs MULTIPLY =====================
+
+// ----- two SEPARATE (sequential) loops -> ADD their complexities -----
+//      for (i = 0; i < n; i++) { ... }   <- n steps
+//      for (j = 0; j < n; j++) { ... }   <- n steps
+// total = n + n = 2n  ->  O(2n)
+
+// ----- a loop NESTED inside another -> MULTIPLY their complexities -----
+//      for (i = 0; i < n; i++) {
+//          for (j = 0; j < n; j++) { ... }
+//      }
+// total = n x n = n^2  ->  O(n^2)   ("nested" loops multiply)
+
+// three independent (not nested) loops, one after another:
+//      for (...) { }   for (...) { }   for (...) { }
+// total = n + n + n = 3n  ->  O(3n)
+
+// ===================== RULE: DROP THE CONSTANTS =====================
+// Big-O cares about the SHAPE of growth as n gets huge, not the exact count.
+// so a constant multiplier in front of n gets dropped:
+//      O(2n)  -> O(n)
+//      O(3n)  -> O(n)
+//      O(10n) -> O(n)
+// they're all still "linear" - twice, three times, or ten times the work is
+// still nothing compared to the JUMP from O(n) to O(n^2)
+
+// proof by the numbers - O(n^2) vs a linear one (after dropping constants,
+// O(n), O(2n), O(3n), O(10n) all behave the same way, growth-order wise):
+
+// O(n^2):
+//      n = 10          -> x = 100                    (10^2)
+//      n = 100         -> x = 10,000                 (100^2)
+//      n = 1,000,000   -> x = (1,000,000)^2 = 1 trillion
+
+// O(3n)  (before dropping the constant):
+//      n = 10          -> x = 30
+//      n = 100         -> x = 300
+//      n = 1,000,000   -> x = 3,000,000
+
+// at n = 1,000,000: O(n^2) needs 1 trillion steps, O(3n) needs only 3 million
+// - the constant (2x, 3x, 10x, whatever) barely matters next to the jump
+// from n to n^2
