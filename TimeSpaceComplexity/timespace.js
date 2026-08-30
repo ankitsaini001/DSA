@@ -298,3 +298,36 @@ console.log(doubleArray([1, 2, 3, 4, 5])); // [2, 4, 6, 8, 10]
 // at n = 1,000,000: O(n^2) needs 1 trillion steps, O(3n) needs only 3 million
 // - the constant (2x, 3x, 10x, whatever) barely matters next to the jump
 // from n to n^2
+
+// ===================== RULE: DROP LOWER-ORDER TERMS =====================
+// when an algorithm's real work adds up to a SUM of different-order terms,
+// Big-O keeps only the fastest-growing (dominant) term and drops the rest -
+// as n gets huge, the smaller terms become insignificant next to the big one
+
+// ----- example: a nested loop followed by a separate loop -----
+//      for (i = 0; i < n; i++) {      <- nested loop -> O(n^2)
+//          for (j = 0; j < n; j++) { }
+//      }
+//      for (k = 0; k < n; k++) { }    <- separate loop -> O(n)
+//
+// these two blocks are sequential (not nested in each other), so ADD them:
+//      O(n^2) + O(n)  =  O(n^2 + n)
+// n^2 is the dominant term (it grows faster than n), so drop the lower-order n:
+//      O(n^2 + n)  =>  O(n^2)
+
+// ----- more examples of the same rule -----
+//      O(n^3 + n + n^2)             -> keep only the highest-order term
+//                                      (cross out n and n^2)
+//                                   => O(n^3)
+//
+//      O(n^2 + 2n)                  -> drop the lower-order 2n term
+//                                   => O(n^2)
+//
+//      O(n^2 + n*log(n) + 2n + c)   -> n^2 dominates n*log(n), 2n, and the
+//                                      constant c - drop all three
+//                                   => O(n^2)
+
+// ----- the two simplification rules, together -----
+//      1) drop constant multipliers  : O(3n)      -> O(n)
+//      2) drop lower-order terms     : O(n^2 + n) -> O(n^2)
+// Big-O only cares about the single fastest-growing term as n -> infinity
