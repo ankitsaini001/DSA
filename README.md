@@ -13,6 +13,7 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-24 | [Count digits](countdigit/countdigit.js) | Digit counting with corner cases: `n = 0` and negative numbers |
 | 2026-08-25 | [Palindrome check](Warm%20Up/palindrome/palindrome.js) | Negative-number handling, boolean-return refactor, LeetCode version |
 | 2026-08-25 – 2026-08-27 | [Reverse integer](Warm%20Up/palindrome/reverse.js) | Negative-number handling, LeetCode 32-bit signed overflow check |
+| 2026-08-30 | [Time complexity (Big O)](TimeSpaceComplexity/timespace.js) | Linear vs binary search walkthrough, best case vs worst case, growth-rate graph (`n` vs steps), common complexities O(1) → O(n!), combining loops (add vs multiply), dropping constants & lower-order terms |
 
 ## 📂 Structure
 
@@ -25,6 +26,7 @@ DSA/
 ├── countdigit/           # digit-counting with corner cases (zero, negative)
 ├── Warm Up/              # early practice snapshots, plus palindrome & reverse-integer work
 │   └── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
+├── TimeSpaceComplexity/  # Big O notes — linear vs binary search, growth-rate comparisons
 ├── arrays/               # (coming soon — dedicated topic; array basics so far live in loops/)
 ├── strings/              # (coming soon)
 ├── recursion/            # (coming soon)
@@ -43,6 +45,7 @@ DSA/
 - [x] Loops — `for`/`while`, nested loops, array traversal & searches
 - [x] Pattern printing — star/number triangles, pyramids, alternating patterns
 - [x] Digit manipulation — count digits, reverse integer, palindrome check
+- [x] Time complexity (Big O) — linear vs binary search, best/worst case, growth curves, combining & simplifying complexities
 - [ ] Arrays (as a dedicated topic)
 - [ ] Strings
 - [ ] Recursion
@@ -69,4 +72,5 @@ node functions/functions.js
 node loops/star_patterns.js
 node countdigit/countdigit.js
 node "Warm Up/palindrome/reverse.js"
+node TimeSpaceComplexity/timespace.js
 ```
