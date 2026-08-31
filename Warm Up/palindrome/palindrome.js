@@ -117,3 +117,37 @@ var isPalindrome = function(s) {
 console.log(isPalindrome("A man, a plan, a canal: Panama"));
 console.log(isPalindrome("race a car"));
 console.log(isPalindrome(""));
+
+//leetcode: 680. Valid Palindrome II
+//Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+var validPalindrome = function(s) {
+    s = s.toLowerCase();
+    let left = 0;
+    let right = s.length - 1;
+
+    while(left < right){
+        if(s[left] !== s[right]){
+            return isPalindrome(s, left+1, right) ||
+            isPalindrome(s, left, right-1);
+        }
+        left++;
+        right--;
+    }
+    return true;
+};
+
+function isPalindrome(s, l, r){
+    while(l<r){
+            if(s[l] !== s[r]){
+        return false;
+    }
+    l++;
+    r--;
+    }
+    return true;
+}
+
+console.log(validPalindrome('aba'));
+console.log(validPalindrome('abca'));
+console.log(validPalindrome('abc'));
