@@ -92,3 +92,28 @@ var isPalindrome = function (x) {
 console.log(isPalindrome(121));
 console.log(isPalindrome(-121));
 console.log(isPalindrome(10));
+
+// Alphanumeric Palindrome 
+var isPalindrome = function(s) {
+  if(s == ""){
+    return true;
+  }  
+  let character = s.toLowerCase();
+  let cleanedString = character.replace(/[^a-z0-9]/gi, "");
+
+  let left = 0;
+  let right = cleanedString.length - 1;
+
+  while(left < right){
+    if(cleanedString[left] !== cleanedString[right]){
+        return false;
+    }
+    left++;
+    right--;
+  }
+  return true;
+};
+
+console.log(isPalindrome("A man, a plan, a canal: Panama"));
+console.log(isPalindrome("race a car"));
+console.log(isPalindrome(""));
