@@ -134,6 +134,12 @@ console.log(binarySearch(sortedArr, 100)); // worst case, not found
 // log n grows so much slower than n that binary search wins by a landslide
 // as the array gets bigger - that's the ">>>>" from the notes.
 
+// side by side, for the same n:
+//      Linear Search:  n = 100  -> 100 times   |  n = 1000 -> 1000 times
+//      Binary Search:  n = 100  -> 7   times   |  n = 1000 -> 10   times
+// binary search needs FAR fewer steps for the exact same input size
+// -> binary search is the more SPEED EFFICIENT algorithm  (checkmark)
+
 // ===================== GRAPH: x (steps) vs n (input size) =====================
 
 // plot n on the x-axis and steps(x) on the y-axis, both scaled the same way
