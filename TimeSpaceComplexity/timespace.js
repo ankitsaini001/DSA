@@ -60,7 +60,14 @@ console.log(linearSearch([2, 1, 3, 5, 4, 7], 5));
 // search(15)
 
 // each comparison eliminates HALF of the remaining elements
-// question: how many times can n be halved before it becomes 1?
+// question: how many times (x) can n be halved before it becomes 1?
+
+//      n x 1/2 x 1/2 x 1/2 x ... (x times) = 1
+//      n x (1/2)^x = 1
+//      n / 2^x = 1
+//      n = 2^x
+//      log2(n) = x        <- take log base 2 of both sides
+
 // answer:
 //      x = log2(n)
 
