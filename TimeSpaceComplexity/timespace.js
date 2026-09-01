@@ -5,6 +5,12 @@
 
 // It is used to measure efficiency of algorithm in terms of speed,
 // as the input size grows.
+//                          ^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^^^^
+//                          "speed efficiency"   -> only matters/shows up
+//                                                  WHEN INPUT SIZE GROWS
+//                          (for a tiny fixed input, most algorithms feel
+//                          equally fast - the difference only becomes
+//                          visible as n gets large)
 
 //      Time Complexity  !=  Time taken
 //
