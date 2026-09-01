@@ -1,6 +1,21 @@
 // Time & Space Complexity - notes
 // Example used: Linear Search vs Binary Search
 
+// ===================== WHAT IS TIME COMPLEXITY =====================
+
+// It is used to measure efficiency of algorithm in terms of speed,
+// as the input size grows.
+
+//      Time Complexity  !=  Time taken
+//
+// "Time taken" (actual clock time, e.g. seconds/ms) depends on the
+// machine and language it runs on - a faster CPU or a lower-level
+// language can run the SAME algorithm quicker.
+//
+// Time Complexity is independent of machine/language - it only
+// measures how the NUMBER OF STEPS grows as input size (n) grows,
+// so it stays the same no matter what hardware or language runs it.
+
 // ===================== LINEAR SEARCH =====================
 
 // works on ANY array - sorted or unsorted
