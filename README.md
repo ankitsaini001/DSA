@@ -13,6 +13,8 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-24 | [Count digits](countdigit/countdigit.js) | Digit counting with corner cases: `n = 0` and negative numbers |
 | 2026-08-25 | [Palindrome check](Warm%20Up/palindrome/palindrome.js) | Negative-number handling, boolean-return refactor, LeetCode version |
 | 2026-08-25 – 2026-08-27 | [Reverse integer](Warm%20Up/palindrome/reverse.js) | Negative-number handling, LeetCode 32-bit signed overflow check |
+| 2026-08-29 | [Arrays](arrays/arrays.js) | Sum of elements, reverse an array (without built-ins), linear search, find duplicates |
+| 2026-08-29 | [Strings](strings/strings.js) | Reverse a string, palindrome check, count vowels, anagram check |
 | 2026-08-30 | [Time complexity (Big O)](TimeSpaceComplexity/timespace.js) | Linear vs binary search walkthrough, best case vs worst case, growth-rate graph (`n` vs steps), common complexities O(1) → O(n!), combining loops (add vs multiply), dropping constants & lower-order terms |
 | 2026-08-30 | [Space complexity (Big O)](TimeSpaceComplexity/timespace.js) | Extra-memory rules: fixed variables → O(1), a new size-`n` array → O(n), a new `n x n` matrix → O(n²) |
 
@@ -28,8 +30,8 @@ DSA/
 ├── Warm Up/              # early practice snapshots, plus palindrome & reverse-integer work
 │   └── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
 ├── TimeSpaceComplexity/  # Big O notes — linear vs binary search, growth-rate comparisons, space complexity rules
-├── arrays/               # (coming soon — dedicated topic; array basics so far live in loops/)
-├── strings/              # (coming soon)
+├── arrays/               # dedicated array practice — sum, reverse, linear search, duplicates
+├── strings/              # string practice — reverse, palindrome, vowels, anagram
 ├── recursion/            # (coming soon)
 ├── sorting/              # (coming soon)
 ├── searching/            # (coming soon)
@@ -48,8 +50,8 @@ DSA/
 - [x] Digit manipulation — count digits, reverse integer, palindrome check
 - [x] Time complexity (Big O) — linear vs binary search, best/worst case, growth curves, combining & simplifying complexities
 - [x] Space complexity (Big O) — O(1) fixed variables, O(n) new array, O(n²) new matrix
-- [ ] Arrays (as a dedicated topic)
-- [ ] Strings
+- [x] Arrays (as a dedicated topic)
+- [x] Strings
 - [ ] Recursion
 - [ ] Sorting algorithms
 - [ ] Searching algorithms
@@ -74,5 +76,7 @@ node functions/functions.js
 node loops/star_patterns.js
 node countdigit/countdigit.js
 node "Warm Up/palindrome/reverse.js"
+node arrays/arrays.js
+node strings/strings.js
 node TimeSpaceComplexity/timespace.js
 ```
