@@ -11,7 +11,7 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-16 – 2026-08-19 | [Nested loops](loops/loop_in_loop.js) | Loop-in-loop pair printing, triangular iteration, generating pairs from an array |
 | 2026-08-18 – 2026-08-28 | [Star & number patterns](loops/star_patterns.js) | Squares, right-angled & reverse triangles, right-aligned triangles, alternating 1/0 rows, pyramids & reverse pyramids |
 | 2026-08-24 | [Count digits](countdigit/countdigit.js) | Digit counting with corner cases: `n = 0` and negative numbers |
-| 2026-08-25 | [Palindrome check](Warm%20Up/palindrome/palindrome.js) | Negative-number handling, boolean-return refactor, LeetCode version |
+| 2026-08-25 – 2026-08-31 | [Palindrome check](Warm%20Up/palindrome/palindrome.js) | Negative-number handling, boolean-return refactor, LeetCode version, alphanumeric palindrome (strip punctuation/case), LeetCode 680 Valid Palindrome II (palindrome after at most one deletion) |
 | 2026-08-25 – 2026-08-27 | [Reverse integer](Warm%20Up/palindrome/reverse.js) | Negative-number handling, LeetCode 32-bit signed overflow check |
 | 2026-08-29 | [Arrays](arrays/arrays.js) | Sum of elements, reverse an array (without built-ins), linear search, find duplicates |
 | 2026-08-29 | [Strings](strings/strings.js) | Reverse a string, palindrome check, count vowels, anagram check |
@@ -49,7 +49,7 @@ DSA/
 - [x] Functions — basics, parameters, return values, reuse
 - [x] Loops — `for`/`while`, nested loops, array traversal & searches
 - [x] Pattern printing — star/number triangles, pyramids, alternating patterns
-- [x] Digit manipulation — count digits, reverse integer, palindrome check
+- [x] Digit manipulation — count digits, reverse integer, palindrome check (incl. alphanumeric palindrome & LeetCode 680)
 - [x] Time complexity (Big O) — linear vs binary search, best/worst case, growth curves, combining & simplifying complexities
 - [x] Space complexity (Big O) — O(1) fixed variables, O(n) new array, O(n²) new matrix
 - [x] Arrays (as a dedicated topic)
