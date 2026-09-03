@@ -17,7 +17,7 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-29 | [Strings](strings/strings.js) | Reverse a string, palindrome check, count vowels, anagram check |
 | 2026-08-29 | [Recursion](recursion/recursion.js) | Factorial, sum of n natural numbers, fibonacci, power — all recursive |
 | 2026-08-29 | [Sorting](sorting/sorting.js) | Bubble sort and selection sort |
-| 2026-08-30 | [Time complexity (Big O)](TimeSpaceComplexity/timespace.js) | Linear vs binary search walkthrough, best case vs worst case, growth-rate graph (`n` vs steps), common complexities O(1) → O(n!), combining loops (add vs multiply), dropping constants & lower-order terms |
+| 2026-08-30 – 2026-09-01 | [Time complexity (Big O)](TimeSpaceComplexity/timespace.js) | What time complexity actually measures (independent of machine/language, only shows up as `n` grows), linear vs binary search walkthrough incl. algebraic derivation of `log2(n) = x`, best case vs worst case, side-by-side step comparison, growth-rate graph (`n` vs steps), common complexities O(1) → O(n!), combining loops (add vs multiply), dropping constants & lower-order terms |
 | 2026-08-30 | [Space complexity (Big O)](TimeSpaceComplexity/timespace.js) | Extra-memory rules: fixed variables → O(1), a new size-`n` array → O(n), a new `n x n` matrix → O(n²) |
 
 ## 📂 Structure
