@@ -83,3 +83,26 @@ var search = function (nums, target) {
 };
 console.log(search(nums, 9));
 console.log(search(nums, 2));
+
+// leetcode 278
+// is badversion
+function isBadVersionCheck(version) { 
+    return version >= 4;
+}
+
+function solution(isBadVersion, n) { 
+    let left = 0;
+    let right = n;
+
+    while (left < right) { 
+        let mid = Math.floor((left + right) / 2);
+
+        if (isBadVersion(mid)) {
+            right = mid;
+        } else { 
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+console.log(solution(isBadVersionCheck,5));
