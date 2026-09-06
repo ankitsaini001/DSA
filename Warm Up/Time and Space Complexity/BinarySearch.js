@@ -106,3 +106,54 @@ function solution(isBadVersion, n) {
     return left;
 }
 console.log(solution(isBadVersionCheck,5));
+
+// Find First and Last Position of Element (LeetCode 34)
+//nums = [5,7,7,8,8,10], target = 8
+//nums = [5,7,7,8,8,10], target = 6
+
+function leftMostSearch(nums, target) { 
+    let left = 0;
+    let right = nums.length - 1;
+    let result = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] == target) {
+            result = mid;
+            right = mid - 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else { 
+            right = mid - 1;
+        }
+    }
+    return result;
+}
+
+function rightMostSearch(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    let result = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] == target) {
+            result = mid;
+            left = mid + 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else { 
+            right = mid - 1;
+        }
+    }
+    return result;
+}
+
+var searchBinary = function (nums, target) { 
+    let left = leftMostSearch(nums, target);
+    let right = rightMostSearch(nums, target);
+
+    return [left, right];
+}
+console.log(searchBinary([5, 7, 7, 8, 8, 10],8));
+console.log(searchBinary([5, 7, 7, 8, 8, 10],6));
