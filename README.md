@@ -19,7 +19,7 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-29 | [Sorting](sorting/sorting.js) | Bubble sort and selection sort |
 | 2026-08-30 – 2026-09-01 | [Time complexity (Big O)](TimeSpaceComplexity/timespace.js) | What time complexity actually measures (independent of machine/language, only shows up as `n` grows), linear vs binary search walkthrough incl. algebraic derivation of `log2(n) = x`, best case vs worst case, side-by-side step comparison, growth-rate graph (`n` vs steps), common complexities O(1) → O(n!), combining loops (add vs multiply), dropping constants & lower-order terms |
 | 2026-08-30 | [Space complexity (Big O)](TimeSpaceComplexity/timespace.js) | Extra-memory rules: fixed variables → O(1), a new size-`n` array → O(n), a new `n x n` matrix → O(n²) |
-| 2026-09-05 | [Binary search practice](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | Classic binary search (LeetCode 704), plus search-insert-position variants (target missing / beyond array bounds) |
+| 2026-09-05 – 2026-09-06 | [Binary search practice](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | Classic binary search (LeetCode 704), search-insert-position variants, LeetCode 278 First Bad Version (binary search on a boolean condition), LeetCode 34 Find First and Last Position (leftmost/rightmost search), LeetCode 35 Search Insert Position |
 
 ## 📂 Structure
 
@@ -58,7 +58,7 @@ DSA/
 - [x] Strings
 - [x] Recursion
 - [x] Sorting algorithms
-- [x] Searching algorithms — binary search + LeetCode variants
+- [x] Searching algorithms — binary search + LeetCode variants (704, 278, 34, 35)
 - [ ] Linked Lists
 - [ ] Stacks & Queues
 - [ ] Trees
