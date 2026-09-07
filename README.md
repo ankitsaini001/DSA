@@ -19,6 +19,7 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-29 | [Sorting](sorting/sorting.js) | Bubble sort and selection sort |
 | 2026-08-30 – 2026-09-01 | [Time complexity (Big O)](TimeSpaceComplexity/timespace.js) | What time complexity actually measures (independent of machine/language, only shows up as `n` grows), linear vs binary search walkthrough incl. algebraic derivation of `log2(n) = x`, best case vs worst case, side-by-side step comparison, growth-rate graph (`n` vs steps), common complexities O(1) → O(n!), combining loops (add vs multiply), dropping constants & lower-order terms |
 | 2026-08-30 | [Space complexity (Big O)](TimeSpaceComplexity/timespace.js) | Extra-memory rules: fixed variables → O(1), a new size-`n` array → O(n), a new `n x n` matrix → O(n²) |
+| 2026-09-05 | [Binary search practice](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | Classic binary search (LeetCode 704), plus search-insert-position variants (target missing / beyond array bounds) |
 
 ## 📂 Structure
 
@@ -30,7 +31,8 @@ DSA/
 ├── loops/               # for/while, nested loops, array traversal, star & number patterns
 ├── countdigit/           # digit-counting with corner cases (zero, negative)
 ├── Warm Up/              # early practice snapshots, plus palindrome & reverse-integer work
-│   └── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
+│   ├── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
+│   └── Time and Space Complexity/  # binary search practice + related LeetCode problems
 ├── TimeSpaceComplexity/  # Big O notes — linear vs binary search, growth-rate comparisons, space complexity rules
 ├── arrays/               # dedicated array practice — sum, reverse, linear search, duplicates
 ├── strings/              # string practice — reverse, palindrome, vowels, anagram
@@ -56,7 +58,7 @@ DSA/
 - [x] Strings
 - [x] Recursion
 - [x] Sorting algorithms
-- [ ] Searching algorithms
+- [x] Searching algorithms — binary search + LeetCode variants
 - [ ] Linked Lists
 - [ ] Stacks & Queues
 - [ ] Trees
@@ -83,4 +85,5 @@ node strings/strings.js
 node recursion/recursion.js
 node sorting/sorting.js
 node TimeSpaceComplexity/timespace.js
+node "Warm Up/Time and Space Complexity/BinarySearch.js"
 ```
