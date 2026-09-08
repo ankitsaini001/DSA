@@ -58,3 +58,67 @@ console.log(isNonDecreasing([1, 2, 3, 2])); // false -> 2 < 3, order breaks
 // Because the input here is sorted non-decreasing, all copies of a value sit
 // NEXT TO each other - so a duplicate can be spotted just by comparing
 // neighbours, no extra lookup structure needed.
+
+// LeetCode 26 - Remove Duplicates from Sorted Array
+// Given a sorted (non-decreasing) array nums, remove the duplicates IN-PLACE
+// so each unique value appears once, keeping the order. Return k = the count
+// of unique values. The first k slots of nums must hold those unique values;
+// whatever sits after index k-1 doesn't matter.
+
+// Idea: two pointers walking the same array
+//   i = the reader - visits every element, one by one
+//   x = the writer - index of the LAST unique value already placed
+// Because the array is sorted, equal values are adjacent, so a value is new
+// exactly when it is BIGGER than the last one we kept:  a[i] > a[x]
+// When that happens: move the writer forward one slot and copy the new value
+// into it. Otherwise it's a duplicate - just skip it, i keeps moving.
+
+function removeDuplicates(a) {
+    let n = a.length;
+    let x = 0; // a[0] is always unique, so the writer starts parked on it
+
+    for (let i = 0; i < n; i++) {
+        if (a[i] > a[x]) { // new value, not a repeat of a[x]
+            x = x + 1; // make room
+            a[x] = a[i]; // overwrite the duplicate sitting there
+        }
+        // else -> a[i] == a[x], a duplicate, skip it
+    }
+    return x + 1; // x is an INDEX, the count is one more than that
+}
+
+// Walkthrough of the board example: a = [0,0,1,1,1,2,2,3,3,4]
+// i=0  a[0]=0 > a[0]=0 ?  no  -> skip
+// i=1  a[1]=0 > a[0]=0 ?  no  -> skip (duplicate 0)
+// i=2  a[2]=1 > a[0]=0 ?  yes -> x=1, a[1]=1  [0,1,1,1,1,2,2,3,3,4]
+// i=3  a[3]=1 > a[1]=1 ?  no  -> skip
+// i=4  a[4]=1 > a[1]=1 ?  no  -> skip
+// i=5  a[5]=2 > a[1]=1 ?  yes -> x=2, a[2]=2  [0,1,2,1,1,2,2,3,3,4]
+// i=6  a[6]=2 > a[2]=2 ?  no  -> skip
+// i=7  a[7]=3 > a[2]=2 ?  yes -> x=3, a[3]=3  [0,1,2,3,1,2,2,3,3,4]
+// i=8  a[8]=3 > a[3]=3 ?  no  -> skip
+// i=9  a[9]=4 > a[3]=3 ?  yes -> x=4, a[4]=4  [0,1,2,3,4,2,2,3,3,4]
+// loop ends, x=4 -> return 5
+// the tail [2,2,3,3,4] is leftover junk - the problem says to ignore it
+
+let nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+console.log(removeDuplicates(nums)); // 5
+console.log(nums); // [0,1,2,3,4, 2,2,3,3,4] -> only the first 5 matter
+console.log(nums.slice(0, 5)); // [0,1,2,3,4]
+
+let nums2 = [1, 1, 2];
+console.log(removeDuplicates(nums2), nums2.slice(0, 2)); // 2 [1,2]
+
+// why a[i] > a[x] and not a[i] !== a[x]
+// on a sorted array both work - a[i] can never be SMALLER than a[x], so
+// "not equal" and "greater than" mean the same thing here. On an unsorted
+// array neither works, the whole trick depends on duplicates being adjacent.
+
+// corner case: empty array
+// this version returns 1 for [] because x starts at 0 and the loop never runs.
+// LeetCode guarantees n >= 1 so it passes there, but guard it if the input
+// might be empty:  if (a.length === 0) return 0;
+
+// complexity
+// time  O(n) - i makes a single pass over the array
+// space O(1) - everything is overwritten in place, no second array
