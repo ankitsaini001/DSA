@@ -122,3 +122,17 @@ console.log(removeDuplicates(nums2), nums2.slice(0, 2)); // 2 [1,2]
 // complexity
 // time  O(n) - i makes a single pass over the array
 // space O(1) - everything is overwritten in place, no second array
+
+
+// remove duplicate from non-decreasing array of num
+var findDuplicate = function (nums) { 
+    let x = 0;
+    for (let i = 0; i < nums.length; i++) { 
+        if (nums[i] > nums[x]) { 
+            x = x + 1;
+            nums[x] = nums[i];
+        }
+    }
+    return x + 1;
+}
+console.log(findDuplicate([0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,6,7,8,9,9,9]));
