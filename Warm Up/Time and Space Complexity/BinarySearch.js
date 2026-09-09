@@ -248,3 +248,21 @@ var search = function (nums, target) {
     return [leftSearch, rightSearch];
 }
 console.log(search([5,7,7,8,8,10], 8));
+
+function rotatedArray(nums) { 
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else { 
+            right = mid;
+        }
+    }
+    return nums[left];
+}
+console.log(rotatedArray([4, 5, 6, 7, 0, 1, 2]));
+console.log(rotatedArray([3,4,5,1,2]));
