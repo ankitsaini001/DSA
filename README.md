@@ -21,6 +21,8 @@ Personal practice repo for Data Structures & Algorithms — JavaScript. This is 
 | 2026-08-30 | [Space complexity (Big O)](TimeSpaceComplexity/timespace.js) | Extra-memory rules: fixed variables → O(1), a new size-`n` array → O(n), a new `n x n` matrix → O(n²) |
 | 2026-09-05 – 2026-09-06 | [Binary search practice](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | Classic binary search (LeetCode 704), search-insert-position variants, LeetCode 278 First Bad Version (binary search on a boolean condition), LeetCode 34 Find First and Last Position (leftmost/rightmost search), LeetCode 35 Search Insert Position |
 | 2026-09-06 | [Power of two](Warm%20Up/Time%20and%20Space%20Complexity/poweroftwo.js) | LeetCode 231 — check by repeatedly halving `n` |
+| 2026-09-09 | [Binary search practice, cont'd](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | Repeat practice of leftmost/rightmost search (LeetCode 34), LeetCode 153 Find Minimum in Rotated Sorted Array (no duplicates), LeetCode 33 Search in Rotated Sorted Array (no duplicates) |
+| 2026-09-10 | [Binary search on rotated arrays with duplicates](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | LeetCode 81 Search in Rotated Sorted Array II (handles duplicates by shrinking the ambiguous side), LeetCode 154 Find Minimum in Rotated Sorted Array II (same duplicate-handling idea applied to finding the minimum) |
 
 ## 📂 Structure
 
@@ -59,7 +61,7 @@ DSA/
 - [x] Strings
 - [x] Recursion
 - [x] Sorting algorithms
-- [x] Searching algorithms — binary search + LeetCode variants (704, 278, 34, 35)
+- [x] Searching algorithms — binary search + LeetCode variants (704, 278, 34, 35, 33, 153, 81, 154)
 - [ ] Linked Lists
 - [ ] Stacks & Queues
 - [ ] Trees
