@@ -328,3 +328,27 @@ function searchRotatedArray(nums, target) {
     return false;
 }
 console.log(searchRotatedArray([2, 5, 6, 0, 0, 1, 2], 0));
+
+//Find Minimum in Rotated Sorted Array II (LeetCode 154)
+function findMinimum(nums) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] > nums[right]) {
+            // minimum is to the right of mid
+            left = mid + 1;
+        } else if (nums[mid] < nums[right]) {
+            // minimum is at mid or to its left
+            right = mid;
+        } else {
+            // nums[mid] === nums[right] — ambiguous, shrink safely
+            right--;
+        }
+    }
+
+    return nums[left];
+}
+    console.log(findMinimum([1,3,5]));
