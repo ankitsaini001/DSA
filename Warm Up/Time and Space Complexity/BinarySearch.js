@@ -352,3 +352,4 @@ function findMinimum(nums) {
     return nums[left];
 }
     console.log(findMinimum([1,3,5]));
+    console.log(findMinimum([2,2,2,0,1]));
