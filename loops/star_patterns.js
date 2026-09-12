@@ -1,4 +1,10 @@
+// Star patterns - the outer loop picks the row, the inner loop builds the
+// text of that row, and console.log prints it once the row is complete.
+// NOTE: `let n` gets redeclared further down in this file, so it is meant to
+// be read/run block by block, not all in one go.
+
 // star pattern
+// square: every row gets n stars
 let n = 4;
 for (let i = 0; i < n; i++) {
     let row = "";
@@ -8,6 +14,7 @@ for (let i = 0; i < n; i++) {
     console.log(row);
 }
 
+// right-angled triangle: row i gets i+1 stars
 for (let i = 0; i < n; i++) {
     let row = "";
     for (let j = 0; j <= i; j++) {
@@ -16,6 +23,7 @@ for (let i = 0; i < n; i++) {
     console.log(row);
 }
 
+// first attempt with a running counter - kept for reference
 // for (let i = 0; i <= n; i++) { 
 //     let row = "";
 //     let count = 1;
@@ -25,6 +33,7 @@ for (let i = 0; i < n; i++) {
 //     console.log(row);
 // }
 
+// same triangle with numbers - j+1 restarts at 1 on every row
 for (let i = 0; i <= n; i++) {
     let row = "";
     for (let j = 0; j <= i; j++) {
@@ -34,6 +43,7 @@ for (let i = 0; i <= n; i++) {
 }
 
 // reverse pattern
+// n - i shrinks as i grows, so the rows get shorter instead of longer
 for (let i = 0; i < n; i++) {
     let row = "";
     for (let j = 0; j < n - i; j++) {
@@ -50,6 +60,7 @@ for (let i = 0; i < n; i++) {
     console.log(row);
 }
 
+// the square pattern wrapped in a function so any size can be passed in
 function printSquare(n) {
     for (let i = 0; i < n; i++) {
         let row = "";
@@ -62,6 +73,7 @@ function printSquare(n) {
 
 printSquare(3);
 
+// right-aligned triangle: spaces first, then the stars
 let nstar = 5;
 for (let i = 0; i < nstar; i++) {
     let row = "";
@@ -75,6 +87,7 @@ for (let i = 0; i < nstar; i++) {
 }
 
 // switch pattern
+// pattern resets to 1 inside the outer loop, so every row starts with 1
 for (let i = 0; i < nstar; i++) {
     let row = "";
     let pattern = 1;
@@ -89,6 +102,8 @@ for (let i = 0; i < nstar; i++) {
     console.log(row);
 }
 
+// same idea but toggle lives OUTSIDE the outer loop, so it carries over from
+// one row to the next instead of restarting
 let toggle = 1;
 for (let i = 0; i < nstar; i++) {
     let row = "";
@@ -281,7 +296,7 @@ for (let i = 0; i < nxn; i++) {
     console.log("toggle: " + row);
 }
 
-// practice 1
+// practice 1 - redo the square from scratch without looking above
 function printSquareTest(n) {
     for (let i = 0; i < n; i++) {
         let row = "";
@@ -318,7 +333,7 @@ function printReverseTriangle(n){
 }
 printReverseTriangle(5);
 
-// print pattern
+// print pattern - odd number of stars per row (1, 3, 5, 7...) using 2*i+1
 function printPattern(n){
     for(let i=0; i<n; i++){
         let row = "";
@@ -346,6 +361,7 @@ function printRightTriangle(n) {
 printRightTriangle(5);
 
 //printPyramid
+// pyramid = right-aligned spaces + the odd star count from printPattern
 function printPyramid(n) {
     for (let i = 0; i < n; i++) {
         let row = "";
@@ -366,6 +382,7 @@ function printPyramid(n) {
 printPyramid(5);
 
 //reverse pyramid
+// widest row first: 2*(n-i)-1 counts the stars back down 9, 7, 5, 3, 1
 function reversePyramid(n){
 	for(let i=0; i<n;i++){
 		let row = "";
