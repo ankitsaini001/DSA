@@ -1,6 +1,7 @@
 // Arrays - dedicated topic (basics were mixed into loops/loops.js earlier)
 
 // create an array and traverse it
+// index runs 0..length-1, so the condition is i < arr.length (not <=)
 function printArray(arr) {
     for (let i = 0; i < arr.length; i++) {
         console.log(arr[i]);
@@ -12,6 +13,7 @@ printArray([10, 20, 30, 40]);
 
 // Write a function sumArray(arr) that returns the sum of all elements.
 
+// keep a running total and add each element to it - one pass, O(n)
 function sumArray(arr) {
     let sum = 0;
     for (let i = 0; i < arr.length; i++) {
@@ -25,6 +27,8 @@ console.log(sumArray([1, 2, 3, 4, 5])); // 15
 
 // Write a function reverseArray(arr) that returns a new reversed array.
 
+// walk the original from the END and push into a new array, so the input
+// array is left untouched
 function reverseArray(arr) {
     let reversed = [];
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -39,6 +43,8 @@ console.log(reverseArray([1, 2, 3, 4, 5])); // [5,4,3,2,1]
 // Write a function linearSearch(arr, target) that returns the index of target
 // or -1 if it's not found.
 
+// check elements one by one and return as soon as there is a match;
+// -1 only after the whole array has been checked
 function linearSearch(arr, target) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === target) {
@@ -55,6 +61,8 @@ console.log(linearSearch([5, 3, 8, 1, 9], 100)); // -1
 // Write a function findDuplicates(arr) that returns all values that appear
 // more than once.
 
+// `seen` remembers everything visited so far, `duplicates` collects the
+// repeats - the second check stops the same value being reported twice
 function findDuplicates(arr) {
     let seen = [];
     let duplicates = [];
@@ -71,6 +79,7 @@ function findDuplicates(arr) {
 }
 console.log(findDuplicates([1, 2, 3, 2, 4, 1])); // [2,1]
 
-// corner case: empty array
+// corner case: empty array - the loops simply never run, so the starting
+// values (0 and -1) come straight back
 console.log(sumArray([])); // 0
 console.log(linearSearch([], 5)); // -1

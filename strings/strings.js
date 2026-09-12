@@ -1,6 +1,7 @@
 // Strings - basics
 
 // traverse a string character by character
+// str[i] works just like array indexing, and .length counts the characters
 function printChars(str) {
     for (let i = 0; i < str.length; i++) {
         console.log(str[i]);
@@ -12,6 +13,8 @@ printChars("Ankit");
 
 // Write a function reverseString(str) that returns the reversed string.
 
+// strings can't be changed in place, so build a new one by adding each
+// character from the end
 function reverseString(str) {
     let reversed = "";
     for (let i = str.length - 1; i >= 0; i--) {
@@ -25,6 +28,7 @@ console.log(reverseString("hello")); // "olleh"
 
 // Write a function isPalindromeString(str) that returns true/false.
 
+// reuse reverseString: a palindrome reads the same both ways
 function isPalindromeString(str) {
     return str === reverseString(str);
 }
@@ -35,6 +39,7 @@ console.log(isPalindromeString("hello")); // false
 
 // Write a function countVowels(str) that returns how many vowels it has.
 
+// both cases are listed in `vowels` so "A" counts the same as "a"
 function countVowels(str) {
     let vowels = "aeiouAEIOU";
     let count = 0;
@@ -52,6 +57,8 @@ console.log(countVowels("Namasate")); // 4
 // Write a function isAnagram(a, b) that returns true if a and b contain
 // exactly the same characters (just rearranged).
 
+// sort both strings and compare - anagrams end up identical once sorted.
+// the length check is a quick exit before doing any of that work
 function isAnagram(a, b) {
     if (a.length !== b.length) {
         return false;
@@ -63,6 +70,7 @@ function isAnagram(a, b) {
 console.log(isAnagram("listen", "silent")); // true
 console.log(isAnagram("hello", "world")); // false
 
-// corner case: empty string
+// corner case: empty string - nothing to loop over, and "" equals "" so it
+// counts as a palindrome
 console.log(reverseString("")); // ""
 console.log(isPalindromeString("")); // true
