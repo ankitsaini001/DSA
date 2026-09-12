@@ -1,4 +1,7 @@
 // Recursion - basics
+// Every function here has two parts: a BASE CASE that stops the calls, and a
+// recursive step that calls itself on a smaller input. Without the base case
+// it never stops and the call stack overflows.
 
 // Q1. Factorial using recursion
 
@@ -6,8 +9,9 @@
 
 function factorial(n) {
     if (n === 0 || n === 1) {
-        return 1;
+        return 1; // base case: 0! and 1! are both 1
     }
+    // 5! = 5 * 4! = 5 * 4 * 3! ... each call shrinks n by 1
     return n * factorial(n - 1);
 }
 console.log(factorial(5)); // 120
@@ -19,8 +23,9 @@ console.log(factorial(0)); // 1
 
 function sumNatural(n) {
     if (n <= 0) {
-        return 0;
+        return 0; // base case: nothing left to add
     }
+    // add n, then let the next call handle everything below n
     return n + sumNatural(n - 1);
 }
 console.log(sumNatural(5)); // 15
@@ -29,6 +34,7 @@ console.log(sumNatural(5)); // 15
 
 // Write a function fibonacci(n) that returns the nth fibonacci number.
 
+// needs TWO base cases because each call branches into two more calls
 function fibonacci(n) {
     if (n === 0) {
         return 0;
@@ -36,6 +42,8 @@ function fibonacci(n) {
     if (n === 1) {
         return 1;
     }
+    // this recalculates the same values over and over - fine for small n,
+    // slow for large n
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 console.log(fibonacci(6)); // 8
@@ -49,8 +57,9 @@ for (let i = 0; i < 8; i++) {
 
 function power(base, exp) {
     if (exp === 0) {
-        return 1;
+        return 1; // base case: anything to the power 0 is 1
     }
+    // multiply by base once, then ask for one exponent less
     return base * power(base, exp - 1);
 }
 console.log(power(2, 5)); // 32
