@@ -3,6 +3,8 @@ console.log(7);
 console.log("7");
 console.log(true);
 
+// arrays are copied by REFERENCE, not by value - b points at the same array
+// as a, so pushing to b changes what a sees too
 let a = [10, 20];
 console.log(a);
 let b = a;
@@ -12,6 +14,8 @@ b.push(30);
 console.log(b); // [10,20,30]
 
 
+// objects behave the same way - user2 is not a copy, it is the same object,
+// which is why renaming through user2 also changes user1.name
 const user1 = {
     name: "Ankit"
 };
@@ -23,6 +27,8 @@ user2.name = "Rahul";
 console.log(user1.name);
 console.log(user2.name);
 
+// a parameter is just a placeholder - the same function works for any value
+// passed in, whether it's a variable or a literal
 function name(name) {
     console.log("Namasate " + name);
 }
@@ -51,6 +57,8 @@ multi(3, 4);
 
 
 // return the square value
+// this one RETURNS instead of logging, so the caller can store the result
+// in a variable and use it later
 
 function square(x) {
     let result = x * x;
@@ -93,6 +101,10 @@ isEven(2);isEven(3);isEven(4);isEven(5);isEven(6);
 
 // Write a function sum(a, b) that returns the sum.
 
+// NOTE: sum, isEven, square and `value` are all redefined further down as
+// the practice questions repeat them - read this file section by section
+// rather than running it as one file.
+
 function sum(a, b) {
     let result = a + b;
     return result;   
@@ -118,6 +130,8 @@ isEven(7);  // false
 
 // Write a function findMax(a, b, c) that returns the largest of the three numbers.
 
+// compare two at a time: find the bigger of a and b first, then check that
+// winner against c
 function findMax(a,b,c){
     let max;
     if (a>b) {
@@ -153,6 +167,8 @@ console.log(square(3));
 //Write a program that accepts a number (age) and checks whether the person is eligible to vote. 
 // A person is eligible if their age is 18 or more.
 
+// only the eligible branch returns a value here, so any age of 18 or below
+// gives back undefined
 function checkAgeEligibility(age){
     if(age>18){
         return "You are eligible to vote.";
@@ -164,6 +180,7 @@ console.log(checkAgeEligibility(20));
 // If the number is divisble by 2, it’s an Even number. 
 // Otherwise, it’s an Odd number. Test the function with inputs 18 and 5.
 
+// num % 2 is the remainder after dividing by 2 - a remainder of 0 means even
 function checkNumberEvenOdd(num){
     if(num%2===0){
         return "it’s an Even number";

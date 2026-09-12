@@ -1,5 +1,8 @@
 // Count Digit
+// Idea: chop the last digit off with Math.floor(n / 10) and count how many
+// chops it takes to reach 0. Each version below fixes one more corner case.
 
+// first version - works for positive numbers only
 function countDigit(n){
     let count = 0;
     while(n>0){
@@ -13,7 +16,7 @@ console.log(countDigit(123));
 console.log(countDigit(12));
 console.log(countDigit(1));
 
-// practice 1
+// practice 1 - same loop written out without a function
 let n_count = 23;
 let count = 0;
 while (n_count > 0) {
@@ -23,6 +26,7 @@ while (n_count > 0) {
 console.log("count digit: " + count);
 
 // corner case: what if n=0;
+// the while loop never runs for 0, so it would wrongly return 0 -> return 1 early
 function countDigits(n){
     if(n===0){
         return 1;
@@ -42,6 +46,8 @@ console.log(countDigits(0));
 console.log(countDigits(-1));
 
 // handle negative number
+// NOTE: this redeclares countDigits above, so both console.log blocks
+// actually run this version
 function countDigits(n) {
     if (n === 0) {
         return 1;
@@ -62,6 +68,7 @@ console.log(countDigits(0));
 console.log(countDigits(-1));
 
 // Write a function countDigits(n)that takes an integer n and returns how many digits it contains.
+// final version: zero and negatives handled together
 function countDigitsCheck(n){
     // handle corner cases as well
     if(n === 0){
