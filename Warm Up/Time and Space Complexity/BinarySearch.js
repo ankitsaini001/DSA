@@ -398,3 +398,25 @@ console.log(distinctInteger([1, 3, 4, 5, 6], 2));
 console.log(distinctInteger([1, 3, 4, 5, 6], 7));
 console.log(distinctInteger([1, 3, 4, 5, 6], -1));
 console.log(distinctInteger([1, 3, 4, 5, 6], 4));
+
+
+// bad version
+function isBadVersion(version) { 
+    return version >= 5;
+}
+function checkBadVersion(isBadVersion, n) { 
+    let left = 0;
+    let right = n;
+
+    while (left < right) { 
+        let mid = Math.floor((left + right) / 2);
+        if (isBadVersion(mid)) {
+            right = mid;
+        } else { 
+            left = mid + 1;
+        }
+        
+    }
+    return left;
+}
+console.log(checkBadVersion(isBadVersion,5));
