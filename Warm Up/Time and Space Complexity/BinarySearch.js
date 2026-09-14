@@ -191,7 +191,7 @@ function searchInsert(nums, target) {
             return mid;
         } else if (nums[mid] < target) {
             left = mid + 1;
-        } else { 
+        } else {
             right = mid - 1;
         }
     }
@@ -202,19 +202,19 @@ console.log(searchInsert([1, 3, 5, 6], 2)); // 1 - insert between 1 and 3
 console.log(searchInsert([1, 3, 5, 6], 7)); // 4 - insert at the end
 
 
-function findRightmost(nums, target) { 
+function findRightmost(nums, target) {
     let left = 0;
     let right = nums.length - 1;
     let result = -1;
 
-    while (left <= right) { 
+    while (left <= right) {
         let mid = Math.floor((left + right) / 2);
         if (nums[mid] == target) {
             result = mid;
             left = mid + 1;
         } else if (nums[mid] < target) {
             left = mid + 1;
-        } else { 
+        } else {
             right = mid - 1;
         }
     }
@@ -222,12 +222,12 @@ function findRightmost(nums, target) {
 
 }
 
-function findLeftmost(nums, target) { 
+function findLeftmost(nums, target) {
     let left = 0;
     let right = nums.length - 1;
     let result = -1;
 
-    while (left <= right) { 
+    while (left <= right) {
         let mid = Math.floor((left + right) / 2);
 
         if (nums[mid] == target) {
@@ -235,21 +235,21 @@ function findLeftmost(nums, target) {
             right = mid - 1;
         } else if (nums[mid] < target) {
             left = mid + 1;
-        } else { 
+        } else {
             right = mid - 1;
         }
     }
     return result;
 }
 
-var search = function (nums, target) { 
+var search = function (nums, target) {
     let leftSearch = findLeftmost(nums, target);
     let rightSearch = findRightmost(nums, target);
     return [leftSearch, rightSearch];
 }
-console.log(search([5,7,7,8,8,10], 8));
+console.log(search([5, 7, 7, 8, 8, 10], 8));
 
-function rotatedArray(nums) { 
+function rotatedArray(nums) {
     let left = 0;
     let right = nums.length - 1;
 
@@ -258,14 +258,14 @@ function rotatedArray(nums) {
 
         if (nums[mid] > nums[right]) {
             left = mid + 1;
-        } else { 
+        } else {
             right = mid;
         }
     }
     return nums[left];
 }
 console.log(rotatedArray([4, 5, 6, 7, 0, 1, 2]));
-console.log(rotatedArray([3,4,5,1,2]));
+console.log(rotatedArray([3, 4, 5, 1, 2]));
 
 function searchSortedArray(nums, target) {
     let left = 0;
@@ -292,8 +292,8 @@ function searchSortedArray(nums, target) {
     }
     return -1;
 }
-console.log(searchSortedArray([4,5,6,7,0,1,2],0));
-console.log(searchSortedArray([4,5,6,7,0,1,2],3));
+console.log(searchSortedArray([4, 5, 6, 7, 0, 1, 2], 0));
+console.log(searchSortedArray([4, 5, 6, 7, 0, 1, 2], 3));
 
 // Search in Rotated Sorted Array II (LeetCode 81)
 function searchRotatedArray(nums, target) {
@@ -351,5 +351,29 @@ function findMinimum(nums) {
 
     return nums[left];
 }
-    console.log(findMinimum([1,3,5]));
-    console.log(findMinimum([2,2,2,0,1]));
+console.log(findMinimum([1, 3, 5]));
+console.log(findMinimum([2, 2, 2, 0, 1]));
+
+let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let target = 14;
+
+function sortTargetSearch(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] == target) {
+            return mid;
+        } else if (nums[mid] <= target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+console.log(sortTargetSearch(num, target));
+console.log(sortTargetSearch(num, 21));
+
