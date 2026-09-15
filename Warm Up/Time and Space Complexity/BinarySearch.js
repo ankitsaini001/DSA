@@ -202,6 +202,10 @@ console.log(searchInsert([1, 3, 5, 6], 2)); // 1 - insert between 1 and 3
 console.log(searchInsert([1, 3, 5, 6], 7)); // 4 - insert at the end
 
 
+// LeetCode 34 again, re-solved from scratch as practice (compare with
+// leftMostSearch/rightMostSearch above). same two-pass idea: on a match,
+// record the index but DON'T return - push the window past it to find the
+// outermost copy
 function findRightmost(nums, target) {
     let left = 0;
     let right = nums.length - 1;
@@ -211,7 +215,7 @@ function findRightmost(nums, target) {
         let mid = Math.floor((left + right) / 2);
         if (nums[mid] == target) {
             result = mid;
-            left = mid + 1;
+            left = mid + 1; // keep looking right for a later copy
         } else if (nums[mid] < target) {
             left = mid + 1;
         } else {
@@ -232,7 +236,7 @@ function findLeftmost(nums, target) {
 
         if (nums[mid] == target) {
             result = mid;
-            right = mid - 1;
+            right = mid - 1; // keep looking left for an earlier copy
         } else if (nums[mid] < target) {
             left = mid + 1;
         } else {
@@ -247,8 +251,14 @@ var search = function (nums, target) {
     let rightSearch = findRightmost(nums, target);
     return [leftSearch, rightSearch];
 }
-console.log(search([5, 7, 7, 8, 8, 10], 8));
+console.log(search([5, 7, 7, 8, 8, 10], 8)); // [3, 4]
 
+// Find Minimum in Rotated Sorted Array (LeetCode 153)
+// a rotated sorted array is two ascending runs, e.g. [4,5,6,7 | 0,1,2]; the
+// minimum is the first element of the second run. compare mid with the
+// RIGHT end instead of with target - that tells us which run mid is in.
+// left < right (not <=) because there's no early-exit match; we just
+// narrow down to a single index
 function rotatedArray(nums) {
     let left = 0;
     let right = nums.length - 1;
@@ -257,15 +267,15 @@ function rotatedArray(nums) {
         let mid = Math.floor((left + right) / 2);
 
         if (nums[mid] > nums[right]) {
-            left = mid + 1;
+            left = mid + 1; // mid is in the bigger left run, the drop is after it
         } else {
-            right = mid;
+            right = mid; // mid could BE the minimum, so keep it in range
         }
     }
-    return nums[left];
+    return nums[left]; // left === right -> the minimum
 }
-console.log(rotatedArray([4, 5, 6, 7, 0, 1, 2]));
-console.log(rotatedArray([3, 4, 5, 1, 2]));
+console.log(rotatedArray([4, 5, 6, 7, 0, 1, 2])); // 0
+console.log(rotatedArray([3, 4, 5, 1, 2])); // 1
 
 function searchSortedArray(nums, target) {
     let left = 0;
@@ -355,6 +365,10 @@ console.log(findMinimum([1, 3, 5]));
 console.log(findMinimum([2, 2, 2, 0, 1]));
 
 // Given a sorted array nums and an integer target, return the index of target if it exists, or -1 if it doesn't. Must run in O(log n).
+// plain LeetCode 704 again, written from memory.
+// NOTE: `let num` is already declared at the top of this file, so this
+// redeclaration is a SyntaxError if the whole file is run with node -
+// rename it (or the one above) before running the file end to end
 let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 let target = 14;
 
@@ -367,7 +381,7 @@ function sortTargetSearch(nums, target) {
 
         if (nums[mid] == target) {
             return mid;
-        } else if (nums[mid] <= target) {
+        } else if (nums[mid] <= target) { // `<=` is harmless only because `==` is checked first
             left = mid + 1;
         } else {
             right = mid - 1;
@@ -375,8 +389,8 @@ function sortTargetSearch(nums, target) {
     }
     return -1;
 }
-console.log(sortTargetSearch(num, target));
-console.log(sortTargetSearch(num, 21));
+console.log(sortTargetSearch(num, target)); // 13 (index of 14)
+console.log(sortTargetSearch(num, 21)); // -1 (bigger than everything)
 //Given a sorted array of distinct integers nums and a target value, return the index if target is found. If not, return the index where it would be if inserted in order, to keep the array sorted. Must run in O(log n).
 function distinctInteger(nums, target) { 
     let left = 0;
