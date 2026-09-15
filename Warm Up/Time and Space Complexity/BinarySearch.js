@@ -392,6 +392,9 @@ function sortTargetSearch(nums, target) {
 console.log(sortTargetSearch(num, target)); // 13 (index of 14)
 console.log(sortTargetSearch(num, 21)); // -1 (bigger than everything)
 //Given a sorted array of distinct integers nums and a target value, return the index if target is found. If not, return the index where it would be if inserted in order, to keep the array sorted. Must run in O(log n).
+// LeetCode 35 again (see searchInsert above). 'distinct' matters: with no
+// duplicates there's exactly one valid answer, so returning `left` after a
+// miss is unambiguous
 function distinctInteger(nums, target) { 
     let left = 0;
     let right = nums.length - 1;
@@ -406,18 +409,22 @@ function distinctInteger(nums, target) {
             right = mid - 1;
         }
     }
-    return left;
+    return left; // not found -> left is where target belongs
 }
-console.log(distinctInteger([1, 3, 4, 5, 6], 2));
-console.log(distinctInteger([1, 3, 4, 5, 6], 7));
-console.log(distinctInteger([1, 3, 4, 5, 6], -1));
-console.log(distinctInteger([1, 3, 4, 5, 6], 4));
+console.log(distinctInteger([1, 3, 4, 5, 6], 2)); // 1 - between 1 and 3
+console.log(distinctInteger([1, 3, 4, 5, 6], 7)); // 5 - past the end
+console.log(distinctInteger([1, 3, 4, 5, 6], -1)); // 0 - before the start
+console.log(distinctInteger([1, 3, 4, 5, 6], 4)); // 2 - found
 
 
 // bad version
-function isBadVersion(version) { 
+function isBadVersion(version) { // stand-in for the API - versions 5+ are bad
     return version >= 5;
 }
+// LeetCode 278 again (see solution() above). binary search over the
+// isBadVersion predicate, which flips from false to true exactly once.
+// right = n (not n - 1) because version n itself might be the first bad one;
+// left < right because we never 'find' a match, we just close the gap
 function checkBadVersion(isBadVersion, n) { 
     let left = 0;
     let right = n;
@@ -425,15 +432,15 @@ function checkBadVersion(isBadVersion, n) {
     while (left < right) { 
         let mid = Math.floor((left + right) / 2);
         if (isBadVersion(mid)) {
-            right = mid;
+            right = mid; // mid is bad, but maybe not the FIRST bad one - keep it
         } else { 
-            left = mid + 1;
+            left = mid + 1; // mid is good, so the first bad one is after it
         }
         
     }
     return left;
 }
-console.log(checkBadVersion(isBadVersion,5));
+console.log(checkBadVersion(isBadVersion,5)); // 5
 
 //Given a sorted array with possible duplicates, and a target, return [firstIndex, lastIndex] of target. If target doesn't exist, return [-1, -1].
 
