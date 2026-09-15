@@ -491,3 +491,19 @@ var search = function (nums, target) {
 }
 console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 3)); // [3, 5] - the run of three 3s
 console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 9)); // [-1, -1] - not present
+
+// rotated Array
+function rotatedArray(nums) { 
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) { 
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else { 
+            right = mid;
+        }
+    }
+    return nums[left];
+}
+console.log(rotatedArray([4,5,6,7,0,1,2]));
