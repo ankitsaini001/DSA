@@ -444,6 +444,9 @@ console.log(checkBadVersion(isBadVersion,5)); // 5
 
 //Given a sorted array with possible duplicates, and a target, return [firstIndex, lastIndex] of target. If target doesn't exist, return [-1, -1].
 
+// LeetCode 34 one more time, this time with strict `===`. two passes are
+// needed because a single binary search stops at WHICHEVER copy of target
+// it lands on - we want both edges of the run of equal values instead.
 function leftIndex(nums, target) { 
     let left = 0;
     let right = nums.length - 1;
@@ -453,7 +456,7 @@ function leftIndex(nums, target) {
         let mid = Math.floor((left + right) / 2);
         if (nums[mid] === target) {
             result = mid;
-            right = mid - 1;
+            right = mid - 1; // matched, but keep going left for the first copy
         } else if (nums[mid] < target) {
             left = mid + 1;
         } else { 
@@ -471,7 +474,7 @@ function rightIndex(nums, target) {
         let mid = Math.floor((left + right) / 2);
         if (nums[mid] === target) {
             result = mid;
-            left = mid + 1;
+            left = mid + 1; // matched, but keep going right for the last copy
         } else if (nums[mid] < target) {
             left = mid + 1;
         } else { 
@@ -484,7 +487,7 @@ function rightIndex(nums, target) {
 var search = function (nums, target) { 
     let left = leftIndex(nums, target);
     let right = rightIndex(nums, target);
-    return [left, right];
+    return [left, right]; // both stay -1 when target is missing
 }
-console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 3));
-console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 9));
+console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 3)); // [3, 5] - the run of three 3s
+console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 9)); // [-1, -1] - not present
