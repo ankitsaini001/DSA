@@ -420,3 +420,50 @@ function checkBadVersion(isBadVersion, n) {
     return left;
 }
 console.log(checkBadVersion(isBadVersion,5));
+
+//Given a sorted array with possible duplicates, and a target, return [firstIndex, lastIndex] of target. If target doesn't exist, return [-1, -1].
+
+function leftIndex(nums, target) { 
+    let left = 0;
+    let right = nums.length - 1;
+    let result = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] === target) {
+            result = mid;
+            right = mid - 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else { 
+            right = mid - 1;
+        }
+    }
+    return result;
+}
+
+function rightIndex(nums, target) { 
+    let left = 0;
+    let right = nums.length - 1;
+    let result = -1;
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] === target) {
+            result = mid;
+            left = mid + 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else { 
+            right = mid - 1;
+        }
+    }
+    return result;
+}
+
+var search = function (nums, target) { 
+    let left = leftIndex(nums, target);
+    let right = rightIndex(nums, target);
+    return [left, right];
+}
+console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 3));
+console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 9));
