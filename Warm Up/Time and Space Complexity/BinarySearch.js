@@ -507,3 +507,4 @@ function rotatedArray(nums) {
     return nums[left];
 }
 console.log(rotatedArray([4,5,6,7,0,1,2]));
+console.log(rotatedArray([8,9,10,11,4,5,6,7]));
