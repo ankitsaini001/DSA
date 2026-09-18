@@ -492,19 +492,27 @@ var search = function (nums, target) {
 console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 3)); // [3, 5] - the run of three 3s
 console.log(search([1, 2, 2, 3, 3, 3, 4, 4, 5, 6, 7], 9)); // [-1, -1] - not present
 
-// rotated Array
+// Find Minimum in Rotated Sorted Array (LeetCode 153) - re-solved from
+// memory. a rotated array is two ascending runs with one drop between them,
+// e.g. [4,5,6,7 | 0,1,2]; the minimum is the first value after that drop.
+// there is nothing to compare mid against except the ends, so compare it
+// with the RIGHT end: that alone says which run mid landed in.
+// NOTE: a rotatedArray with this same logic is already defined earlier in
+// the file. function declarations hoist, so the LAST one wins everywhere -
+// the earlier calls actually run this body. identical here, so nothing
+// breaks, but rename one of them to keep the two attempts separate.
 function rotatedArray(nums) { 
     let left = 0;
     let right = nums.length - 1;
-    while (left < right) { 
+    while (left < right) { // `<` not `<=`: no match to find, just close the gap
         let mid = Math.floor((left + right) / 2);
         if (nums[mid] > nums[right]) {
-            left = mid + 1;
+            left = mid + 1; // mid is in the high run, so the drop is after it
         } else { 
-            right = mid;
+            right = mid; // mid may BE the minimum - keep it inside the window
         }
     }
-    return nums[left];
+    return nums[left]; // left === right -> the one index left standing
 }
 console.log(rotatedArray([4,5,6,7,0,1,2]));
 console.log(rotatedArray([8,9,10,11,4,5,6,7]));
