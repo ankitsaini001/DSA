@@ -536,20 +536,27 @@ function searchRotated(nums, target) {
         if (nums[mid] === target) {
             return mid; // lucky hit - rotation doesn't matter for an exact match
         } else if (nums[left] <= nums[mid]) {
+            // no drop between left and mid, so the LEFT half is the sorted one.
+            // `<=` matters at the very end, when left === mid and that half is
+            // a single element - trivially sorted, and this keeps it that way.
             if (nums[left] <= target && nums[mid] > target) {
-                right = mid - 1;
+                right = mid - 1; // inside the sorted range -> it can only be there
             } else {
-                left = mid + 1;
+                left = mid + 1; // outside it -> the rotated half is all that's left
             }
         } else {
+            // nums[left] > nums[mid] means the drop is on the left, so the
+            // RIGHT half is the sorted one. mirror of the branch above.
             if (nums[mid] < target && target <= nums[right]) {
-                left = mid + 1;
+                left = mid + 1; // inside the sorted range -> search there
             } else {
-                right = mid - 1;   
+                right = mid - 1;   // outside it -> back to the rotated half
             }
         }
+        // both range tests exclude mid and include the far end, because mid
+        // was already ruled out by the equality check at the top of the loop
     }
-    return -1;
+    return -1; // window closed without a hit
 }
 console.log(searchRotated([4, 5, 6, 7, 0, 1, 2],0));
 console.log(searchRotated([4, 5, 6, 7, 0, 1, 2],6));
