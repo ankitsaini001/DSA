@@ -517,14 +517,24 @@ function rotatedArray(nums) {
 console.log(rotatedArray([4,5,6,7,0,1,2]));
 console.log(rotatedArray([8,9,10,11,4,5,6,7]));
 
-//Search in Rotated Sorted Array (no duplicates)
+// Search in Rotated Sorted Array (LeetCode 33, no duplicates)
+// nums = [4,5,6,7,0,1,2] is a sorted array cut once and swapped, which
+// breaks plain binary search: nums[mid] < target no longer means "go right",
+// because the values wrap around somewhere.
+// KEY INSIGHT: cutting a sorted array in two always leaves at least one half
+// still fully sorted. so each step figures out WHICH half that is, then asks
+// whether target falls inside that half's known range. if it does, search
+// there; if it doesn't, the other half is the only place left.
+// this is the no-duplicates version - see searchRotatedArray (LeetCode 81)
+// above for what breaks once duplicates are allowed.
+// still O(log n): every step throws away one half of the window.
 function searchRotated(nums, target) { 
     let left = 0;
     let right = nums.length - 1;
-    while (left <= right) {
+    while (left <= right) { // `<=` so a single-element window still gets checked
         let mid = Math.floor((left + right) / 2);
         if (nums[mid] === target) {
-            return mid;
+            return mid; // lucky hit - rotation doesn't matter for an exact match
         } else if (nums[left] <= nums[mid]) {
             if (nums[left] <= target && nums[mid] > target) {
                 right = mid - 1;
