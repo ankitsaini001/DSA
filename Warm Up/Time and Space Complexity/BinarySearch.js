@@ -514,8 +514,8 @@ function rotatedArray(nums) {
     }
     return nums[left]; // left === right -> the one index left standing
 }
-console.log(rotatedArray([4,5,6,7,0,1,2]));
-console.log(rotatedArray([8,9,10,11,4,5,6,7]));
+console.log(rotatedArray([4,5,6,7,0,1,2])); // 0 - drop is between 7 and 0
+console.log(rotatedArray([8,9,10,11,4,5,6,7])); // 4 - drop is between 11 and 4
 
 // Search in Rotated Sorted Array (LeetCode 33, no duplicates)
 // nums = [4,5,6,7,0,1,2] is a sorted array cut once and swapped, which
@@ -558,5 +558,5 @@ function searchRotated(nums, target) {
     }
     return -1; // window closed without a hit
 }
-console.log(searchRotated([4, 5, 6, 7, 0, 1, 2],0));
-console.log(searchRotated([4, 5, 6, 7, 0, 1, 2],6));
+console.log(searchRotated([4, 5, 6, 7, 0, 1, 2],0)); // 4 - in the rotated half
+console.log(searchRotated([4, 5, 6, 7, 0, 1, 2],6)); // 2 - in the sorted half
