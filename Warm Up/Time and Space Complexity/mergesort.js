@@ -1,3 +1,7 @@
+
+// what does mergeSort(left) return, and why do we assign that returned value back to left?
+// mergeSort() divides an array recursively and returns a sorted version of each half. The returned sorted halves are then passed to merge(), which combines them into one sorted array.
+
 // merge sort array
 function mergeSort(arr) { 
     if (arr.length <= 1) { 
