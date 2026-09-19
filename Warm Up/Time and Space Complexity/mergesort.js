@@ -24,7 +24,8 @@ function merge(left, right) {
     let j = 0;
 
     while (i < left.length && j < right.length) { 
-        if (left[i] < right[j]) {
+        //One small improvement: use <= instead of < when comparing:This makes the merge stable when duplicate values exist.
+        if (left[i] <= right[j]) {
             result.push(left[i]);
             i++;
         } else { 
