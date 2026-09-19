@@ -46,3 +46,4 @@ function merge(left, right) {
     return result;
 }
 console.log(mergeSort([7,2,9,1]));
+console.log(mergeSort([5, 2, 8, 2, 1, 9]));
