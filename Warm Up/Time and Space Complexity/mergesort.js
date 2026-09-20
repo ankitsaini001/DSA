@@ -126,3 +126,36 @@ var merge = function(nums1, m, nums2, n) {
     return result;
 };
 console.log(merge(num1,3,num2,3));
+
+// leetcode 88
+function merging1(nums1, m, nums2, n) {
+    let left = nums1.slice(0, m);
+    let right = nums2.slice(0, n);
+
+    let i = 0;
+    let j = 0;
+    let k = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i] <= right[j]) {
+            nums1[k] = left[i];
+            i++;
+            k++;
+        } else { 
+            nums1[k] = right[j];
+            j++;
+            k++;
+        }
+    }
+    while (i < left.length) {
+        nums1[k] = left[i];
+        i++;
+        k++;
+    }
+    while (j < right.length) {
+        nums1[k] = right[j];
+        j++;
+        k++;
+    }
+    return num1;
+}
