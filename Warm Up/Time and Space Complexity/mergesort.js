@@ -62,8 +62,8 @@ var sortArray = function (nums) {
     let left = nums.slice(0, mid);
     let right = nums.slice(mid);
 
-    left = mergeSort(left);
-    right = mergeSort(right);
+    left = sortArray(left);
+    right = sortArray(right);
 
     return merge(left, right);
 };
