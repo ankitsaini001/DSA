@@ -93,3 +93,36 @@ function merge(left, right) {
     return result;
 }
 console.log(sortArray([5,2,3,1]));
+
+// merge array where we are returning result
+var merge = function(nums1, m, nums2, n) {
+    let left = nums1.slice(0, m);
+    let right = nums2.slice(0, n);
+
+    let i = 0;
+    let j = 0;
+    let result = [];
+
+    while (i < left.length && j < right.length) {
+        if (left[i] <= right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+
+    while (i < left.length) {
+        result.push(left[i]);
+        i++;
+    }
+
+    while (j < right.length) {
+        result.push(right[j]);
+        j++;
+    }
+
+    return result;
+};
+console.log(merge(num1,3,num2,3));
