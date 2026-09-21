@@ -138,10 +138,18 @@ function merge(left, right) {
 }
 console.log(sortArray([5,2,3,1])); // [ 1, 2, 3, 5 ]
 
-// merge array where we are returning result
+// Merge Sorted Array (LeetCode 88), first attempt - returns a new array.
+// the problem hands you nums1 sized m + n, where only the first m slots hold
+// real values and the last n are zero padding, plus nums2 holding n values.
+// both are already sorted, so this is the COMBINE step on its own - no
+// dividing needed, the two sorted halves are given to you.
+// slicing off the padding first turns it back into the plain merge above.
+// this returns the right values, but LeetCode 88 requires nums1 to be
+// modified IN PLACE, so a returned array does not satisfy the judge.
+// merging1 below is the fix.
 var merge = function(nums1, m, nums2, n) {
-    let left = nums1.slice(0, m);
-    let right = nums2.slice(0, n);
+    let left = nums1.slice(0, m); // the m real values, padding dropped
+    let right = nums2.slice(0, n); // the n values that actually matter
 
     let i = 0;
     let j = 0;
@@ -169,16 +177,30 @@ var merge = function(nums1, m, nums2, n) {
 
     return result;
 };
+// BROKEN: num1 and num2 are never declared anywhere in this file - the
+// parameters above are numS1 and numS2, with an s. this line throws
+// ReferenceError: num1 is not defined, and it is what stops the file part
+// way through, so nothing below here ever runs. declare the two arrays
+// first, e.g. let num1 = [1,2,3,0,0,0], num2 = [2,5,6];
+// with those defined it prints [ 1, 2, 2, 3, 5, 6 ].
 console.log(merge(num1,3,num2,3));
 
-// leetcode 88
+// Merge Sorted Array (LeetCode 88), second attempt - in place, which is what
+// the problem actually asks for. same two-pointer merge, but instead of
+// pushing into a new result it writes straight back into nums1 through a
+// third pointer k that tracks the write position.
+// overwriting nums1 while reading from it is safe ONLY because left is a
+// COPY taken by slice before any writing begins. drop that copy and the
+// writes would clobber values that have not been read yet.
+// note there is no test call for this one - merging1([1,2,3,0,0,0], 3,
+// [2,5,6], 3) leaves nums1 as [ 1, 2, 2, 3, 5, 6 ].
 function merging1(nums1, m, nums2, n) {
     let left = nums1.slice(0, m);
     let right = nums2.slice(0, n);
 
-    let i = 0;
-    let j = 0;
-    let k = 0;
+    let i = 0; // read position in left
+    let j = 0; // read position in right
+    let k = 0; // WRITE position in nums1
 
     while (i < left.length && j < right.length) {
         if (left[i] <= right[j]) {
@@ -201,5 +223,9 @@ function merging1(nums1, m, nums2, n) {
         j++;
         k++;
     }
+    // BROKEN: num1 should be numS1 - the same missing s as the call above.
+    // as written this throws ReferenceError the moment merging1 is called.
+    // the mutation of nums1 IS the answer here, so the cleanest fix is to
+    // drop the return entirely, the way LeetCode 88 expects.
     return num1;
 }
