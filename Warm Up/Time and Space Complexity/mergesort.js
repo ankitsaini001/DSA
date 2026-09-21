@@ -33,14 +33,24 @@ function mergeSort(arr) {
     return merge(left, right); // both halves are sorted now - glue them together
 }
 
+// the COMBINE half of merge sort. its precondition is that both inputs are
+// ALREADY sorted - the recursion above is what guarantees that. merging two
+// sorted lists is the cheap part: one pass, O(n + m), no searching.
 function merge(left, right) { 
     let result = [];
 
+    // one pointer per half, both starting at the front
     let i = 0;
     let j = 0;
 
     while (i < left.length && j < right.length) { 
         //One small improvement: use <= instead of < when comparing:This makes the merge stable when duplicate values exist.
+        // why that works: on a tie, `<=` takes from LEFT first, and left holds
+        // the elements that came earlier in the original array, so equal items
+        // keep their original order. invisible for plain numbers, but it is
+        // what lets you sort objects by one key without scrambling the rest.
+        // and because both halves are sorted, the smaller of the two heads is
+        // always the smallest item left anywhere - so one comparison suffices.
         if (left[i] <= right[j]) {
             result.push(left[i]);
             i++;
@@ -51,6 +61,10 @@ function merge(left, right) {
     }
 
     // merge remaining left elements
+    // the loop above quits the moment EITHER half empties, so one half still
+    // has values in it. whatever is left over is already sorted and already
+    // bigger than everything pushed so far, so it just gets appended as is -
+    // no comparing needed. exactly one of these two loops ever runs.
     while (i < left.length) { 
         result.push(left[i]);
         i++;
@@ -59,7 +73,7 @@ function merge(left, right) {
         result.push(right[j]);
         j++;
     }
-    return result;
+    return result; // a NEW array - the caller has to assign it, see mergeSort
 }
 console.log(mergeSort([7,2,9,1])); // [ 1, 2, 7, 9 ]
 console.log(mergeSort([5, 2, 8, 2, 1, 9])); // [ 1, 2, 2, 5, 8, 9 ] - keeps both 2s
