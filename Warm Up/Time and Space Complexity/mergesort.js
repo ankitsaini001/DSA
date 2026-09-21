@@ -78,22 +78,40 @@ function merge(left, right) {
 console.log(mergeSort([7,2,9,1])); // [ 1, 2, 7, 9 ]
 console.log(mergeSort([5, 2, 8, 2, 1, 9])); // [ 1, 2, 2, 5, 8, 9 ] - keeps both 2s
 
-// leetcode: 912
+// Sort an Array (LeetCode 912) - the same merge sort as above, renamed to
+// the signature LeetCode asks for. the problem bans the built-in sort and
+// wants O(n log n), which is exactly what merge sort delivers on any input.
+// worth re-typing from scratch rather than calling mergeSort: the divide and
+// combine split is the thing being practised here.
 var sortArray = function (nums) {
     if (nums.length <= 1) {
-        return nums;
+        return nums; // same base case - a single element is already sorted
     }
     //find the mid
     let mid = Math.floor(nums.length / 2);
     let left = nums.slice(0, mid);
     let right = nums.slice(mid);
 
+    // recurse on each half, capturing the returned arrays as before
     left = sortArray(left);
     right = sortArray(right);
 
     return merge(left, right);
 };
 
+// CAREFUL - this is the third thing in this file named merge:
+//   1. function merge(left, right)      - at the top
+//   2. function merge(left, right)      - this one, an identical copy
+//   3. var merge = function(nums1, m, nums2, n) - further down, and a
+//      completely different signature
+// function declarations hoist, so 2 quietly replaces 1 before a single line
+// runs. they are identical, so nothing breaks. but 3 is an ASSIGNMENT, which
+// happens when execution reaches it - from that point on, every later call to
+// merge() hits the 4-argument version instead.
+// so mergeSort and sortArray only work because their test calls sit ABOVE
+// that assignment. move any of them below it and the sort silently breaks,
+// because merge would receive (left, right) as (nums1, m). rename the
+// LeetCode 88 one to something like mergeInPlace to defuse this.
 function merge(left, right) {
     let result = [];
     let i = 0;
@@ -118,7 +136,7 @@ function merge(left, right) {
     }
     return result;
 }
-console.log(sortArray([5,2,3,1]));
+console.log(sortArray([5,2,3,1])); // [ 1, 2, 3, 5 ]
 
 // merge array where we are returning result
 var merge = function(nums1, m, nums2, n) {
