@@ -2,23 +2,35 @@
 // what does mergeSort(left) return, and why do we assign that returned value back to left?
 // mergeSort() divides an array recursively and returns a sorted version of each half. The returned sorted halves are then passed to merge(), which combines them into one sorted array.
 
-// merge sort array
+// MERGE SORT - divide and conquer, in two halves of the idea:
+//   DIVIDE (this function): keep splitting the array down the middle until
+//     every piece is a single element, which is sorted by definition.
+//   COMBINE (merge below): walk back up, merging each pair of sorted pieces.
+// splitting gives log n levels, and each level merges n items in total, so
+// the cost is O(n log n) - and unlike quicksort that holds for EVERY input,
+// there is no bad-pivot worst case here.
 function mergeSort(arr) { 
     if (arr.length <= 1) { 
-        return arr;
+        return arr; // base case: 0 or 1 element is already sorted - stops the recursion
     }
 
     // find mid
     let mid = Math.floor(arr.length / 2);
 
+    // slice() COPIES, it does not view - so this version sorts out of place
+    // and allocates fresh arrays at every level, costing O(n) extra memory
     let left = arr.slice(0, mid);
     let right = arr.slice(mid);
 
     // sort both half
+    // the reassignment is the part worth remembering: mergeSort RETURNS a new
+    // sorted array instead of sorting its argument in place, so the return
+    // value has to be captured. calling mergeSort(left) and throwing the
+    // result away would leave left exactly as unsorted as it started.
     left = mergeSort(left);
     right = mergeSort(right);
 
-    return merge(left, right);
+    return merge(left, right); // both halves are sorted now - glue them together
 }
 
 function merge(left, right) { 
@@ -49,8 +61,8 @@ function merge(left, right) {
     }
     return result;
 }
-console.log(mergeSort([7,2,9,1]));
-console.log(mergeSort([5, 2, 8, 2, 1, 9]));
+console.log(mergeSort([7,2,9,1])); // [ 1, 2, 7, 9 ]
+console.log(mergeSort([5, 2, 8, 2, 1, 9])); // [ 1, 2, 2, 5, 8, 9 ] - keeps both 2s
 
 // leetcode: 912
 var sortArray = function (nums) {
