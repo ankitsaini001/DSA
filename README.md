@@ -80,18 +80,36 @@ DSA/
 
 ## ▶️ Running examples
 
-Each file is plain Node.js — run any file directly:
+Each file is plain Node.js — run these directly:
 
 ```bash
-node functions/functions.js
-node loops/star_patterns.js
+node loops/loop_in_loop.js
 node countdigit/countdigit.js
-node "Warm Up/palindrome/reverse.js"
 node arrays/arrays.js
+node arrays/removeduplicates.js
 node strings/strings.js
 node recursion/recursion.js
 node sorting/sorting.js
 node TimeSpaceComplexity/timespace.js
-node "Warm Up/Time and Space Complexity/BinarySearch.js"
+node "Warm Up/palindrome/palindrome.js"
+node "Warm Up/palindrome/reverse.js"
 node "Warm Up/Time and Space Complexity/poweroftwo.js"
 ```
+
+### ⚠️ Files that don't run end to end (yet)
+
+These are practice logs where the same name gets reused across attempts, so
+Node refuses the whole file even though each individual block is fine. Read
+them section by section, or copy a single block out to run it:
+
+| File | Why |
+|------|-----|
+| [functions/functions.js](functions/functions.js) | `let value` declared twice (the Q1 practice repeats the earlier `square` example) |
+| [loops/loops.js](loops/loops.js) | `arrSearch` declared twice |
+| [loops/star_patterns.js](loops/star_patterns.js) | `let n` declared several times, once per pattern attempt |
+| [Warm Up/Time and Space Complexity/BinarySearch.js](Warm%20Up/Time%20and%20Space%20Complexity/BinarySearch.js) | `let num` declared twice — the re-practice block redeclares the array from the top of the file |
+| [Warm Up/Time and Space Complexity/mergesort.js](Warm%20Up/Time%20and%20Space%20Complexity/mergesort.js) | `ReferenceError: num1 is not defined` — a LeetCode 88 test call says `num1`/`num2` where the arrays are `nums1`/`nums2`. Also worth knowing: three different functions in this file are named `merge`, and the LeetCode 88 one is an assignment, so it replaces the merge-sort helper from that line onward |
+
+Tidying these up (renaming the duplicates, giving the LeetCode 88 merge its
+own name) is on the list — they're left as-is for now because each block is
+a record of a separate attempt.
