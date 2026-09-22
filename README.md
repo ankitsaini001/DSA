@@ -39,12 +39,12 @@ DSA/
 ├── countdigit/           # digit-counting with corner cases (zero, negative)
 ├── Warm Up/              # early practice snapshots, plus palindrome & reverse-integer work
 │   ├── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
-│   └── Time and Space Complexity/  # binary search practice + related LeetCode problems
+│   └── Time and Space Complexity/  # binary search & merge sort practice + related LeetCode problems
 ├── TimeSpaceComplexity/  # Big O notes — linear vs binary search, growth-rate comparisons, space complexity rules
 ├── arrays/               # dedicated array practice — sum, reverse, linear search, duplicates
 ├── strings/              # string practice — reverse, palindrome, vowels, anagram
 ├── recursion/            # recursion practice — factorial, sum of n, fibonacci, power
-├── sorting/              # sorting algorithms — bubble sort, selection sort
+├── sorting/              # sorting algorithms — bubble sort, selection sort (merge sort lives in Warm Up/Time and Space Complexity/mergesort.js)
 ├── searching/            # (coming soon — search walkthroughs currently live in TimeSpaceComplexity/)
 ├── linked-lists/         # (coming soon)
 ├── stacks-queues/        # (coming soon)
@@ -64,8 +64,8 @@ DSA/
 - [x] Arrays (as a dedicated topic)
 - [x] Strings
 - [x] Recursion
-- [x] Sorting algorithms
-- [x] Searching algorithms — binary search + LeetCode variants (704, 278, 34, 35, 33, 153, 81, 154)
+- [x] Sorting algorithms — bubble sort, selection sort, merge sort (incl. LeetCode 912, 88)
+- [x] Searching algorithms — binary search + LeetCode variants (704, 278, 34, 35, 33, 153, 81, 154), most of them re-solved a second time from memory
 - [ ] Linked Lists
 - [ ] Stacks & Queues
 - [ ] Trees
