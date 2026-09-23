@@ -62,7 +62,7 @@ DSA/
 - [x] Digit manipulation — count digits, reverse integer, palindrome check (incl. alphanumeric palindrome & LeetCode 680)
 - [x] Time complexity (Big O) — linear vs binary search, best/worst case, growth curves, combining & simplifying complexities
 - [x] Space complexity (Big O) — O(1) fixed variables, O(n) new array, O(n²) new matrix
-- [x] Arrays (as a dedicated topic)
+- [x] Arrays (as a dedicated topic) — incl. LeetCode 26 Remove Duplicates from Sorted Array
 - [x] Strings
 - [x] Recursion
 - [x] Sorting algorithms — bubble sort, selection sort, merge sort (incl. LeetCode 912, 88)
