@@ -42,7 +42,7 @@ DSA/
 │   ├── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
 │   └── Time and Space Complexity/  # binary search & merge sort practice + related LeetCode problems
 ├── TimeSpaceComplexity/  # Big O notes — linear vs binary search, growth-rate comparisons, space complexity rules
-├── arrays/               # dedicated array practice — sum, reverse, linear search, duplicates
+├── arrays/               # array practice — sum, reverse, linear search, spot duplicates; removeduplicates.js removes them in place (LeetCode 26)
 ├── strings/              # string practice — reverse, palindrome, vowels, anagram
 ├── recursion/            # recursion practice — factorial, sum of n, fibonacci, power
 ├── sorting/              # sorting algorithms — bubble sort, selection sort (merge sort lives in Warm Up/Time and Space Complexity/mergesort.js)
