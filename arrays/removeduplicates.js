@@ -149,3 +149,4 @@ function findDuplicateValue(nums) {
 }
 console.log(findDuplicateValue([0,0,1,1,1,2,2,3,3,4]));
 console.log(findDuplicateValue([1,1,2]));
+console.log(findDuplicateValue([1, 1, 2, 3, 3, 5]));
