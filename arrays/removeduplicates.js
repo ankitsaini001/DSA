@@ -151,3 +151,21 @@ console.log(findDuplicateValue([0,0,1,1,1,2,2,3,3,4]));
 console.log(findDuplicateValue([1,1,2]));
 console.log(findDuplicateValue([1, 1, 2, 3, 3, 5]));
 console.log(findDuplicateValue([1, 2, 3, 5, 3, 5]));
+
+// function remove duplicate where each unique element is allowed to appear at most twice.
+function removeDuplicatesTwice(nums) {
+    let k = 2; // write pointer — first two elements are always kept as-is
+
+    for (let i = 2; i < nums.length; i++) {
+        if (nums[i] !== nums[k - 2]) {
+            // nums[i] hasn't appeared twice yet in our output — safe to keep
+            nums[k] = nums[i];
+            k++;
+        }
+        // else: nums[i] would be a 3rd occurrence — skip it
+    }
+
+    return k;
+}
+
+console.log(removeDuplicatesTwice([1, 1, 1, 2, 2, 3])); // expect 5
