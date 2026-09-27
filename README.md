@@ -44,7 +44,7 @@ DSA/
 │   ├── palindrome/        # palindrome check + reverse integer (incl. LeetCode variants)
 │   └── Time and Space Complexity/  # binary search & merge sort practice + related LeetCode problems
 ├── TimeSpaceComplexity/  # Big O notes — linear vs binary search, growth-rate comparisons, space complexity rules
-├── arrays/               # array practice — sum, reverse, linear search, spot duplicates; removeduplicates.js removes them in place (LeetCode 26)
+├── arrays/               # array practice — sum, reverse, linear search, spot duplicates; removeduplicates.js removes them in place (LeetCode 26, 80)
 ├── strings/              # string practice — reverse, palindrome, vowels, anagram
 ├── recursion/            # recursion practice — factorial, sum of n, fibonacci, power
 ├── sorting/              # sorting algorithms — bubble sort, selection sort (merge sort lives in Warm Up/Time and Space Complexity/mergesort.js)
@@ -64,7 +64,7 @@ DSA/
 - [x] Digit manipulation — count digits, reverse integer, palindrome check (incl. alphanumeric palindrome & LeetCode 680)
 - [x] Time complexity (Big O) — linear vs binary search, best/worst case, growth curves, combining & simplifying complexities
 - [x] Space complexity (Big O) — O(1) fixed variables, O(n) new array, O(n²) new matrix
-- [x] Arrays (as a dedicated topic) — incl. LeetCode 26 Remove Duplicates from Sorted Array
+- [x] Arrays (as a dedicated topic) — incl. LeetCode 26 Remove Duplicates from Sorted Array and LeetCode 80 (each value kept at most twice)
 - [x] Strings
 - [x] Recursion
 - [x] Sorting algorithms — bubble sort, selection sort, merge sort (incl. LeetCode 912, 88)
