@@ -170,3 +170,4 @@ function removeDuplicatesTwice(nums) {
 
 console.log(removeDuplicatesTwice([1, 1, 1, 2, 2, 3])); // expect 5
 console.log(removeDuplicatesTwice([1, 1, 1, 2, 2, 3,4,4,5,6,6,6,7,7,8]));
+console.log(removeDuplicatesTwice([1,1,2,3,4,4,4,5]));
