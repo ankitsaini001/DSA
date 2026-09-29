@@ -181,5 +181,14 @@ function removeDuplicatesTwice(nums) {
 }
 
 console.log(removeDuplicatesTwice([1, 1, 1, 2, 2, 3])); // expect 5
-console.log(removeDuplicatesTwice([1, 1, 1, 2, 2, 3,4,4,5,6,6,6,7,7,8]));
-console.log(removeDuplicatesTwice([1,1,2,3,4,4,4,5]));
+console.log(removeDuplicatesTwice([1, 1, 1, 2, 2, 3,4,4,5,6,6,6,7,7,8])); // 13 -> [1,1,2,2,3,4,4,5,6,6,7,7,8]
+console.log(removeDuplicatesTwice([1,1,2,3,4,4,4,5])); // 7 -> [1,1,2,3,4,4,5]
+
+// corner case: fewer than 2 elements
+// k starts at 2 and the loop never runs, so [] and [5] both return 2.
+// LeetCode allows n = 1, so [5] is a real failing case there (expects 1) -
+// guard it:  if (nums.length <= 2) return nums.length;
+
+// complexity
+// time  O(n) - one pass with i
+// space O(1) - overwritten in place
