@@ -150,6 +150,11 @@ function findDuplicateValue(nums) {
 console.log(findDuplicateValue([0,0,1,1,1,2,2,3,3,4])); // 5 -> [0,1,2,3,4]
 console.log(findDuplicateValue([1,1,2])); // 2 -> [1,2]
 console.log(findDuplicateValue([1, 1, 2, 3, 3, 5])); // 4 -> [1,2,3,5]
+// unsorted input - breaks the "sorted" rule the trick depends on
+// returns 4 -> [1,2,3,5], which only LOOKS right: the trailing 3 and 5 are
+// skipped because they are not bigger than a[x]=5, and they just happen to be
+// values already kept. A different unsorted array shows the real problem:
+//   findDuplicateValue([3, 1, 2]) -> 1, but there are 3 unique values
 console.log(findDuplicateValue([1, 2, 3, 5, 3, 5]));
 
 // function remove duplicate where each unique element is allowed to appear at most twice.
