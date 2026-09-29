@@ -158,6 +158,13 @@ console.log(findDuplicateValue([1, 1, 2, 3, 3, 5])); // 4 -> [1,2,3,5]
 console.log(findDuplicateValue([1, 2, 3, 5, 3, 5]));
 
 // function remove duplicate where each unique element is allowed to appear at most twice.
+// LeetCode 80 - Remove Duplicates from Sorted Array II
+// Same read/write two pointers as LeetCode 26, but the writer compares against
+// the value TWO slots back in the output, not the last one:
+//   nums[k - 2] is the earliest of the last two kept values. Because the array
+//   is sorted, if nums[i] equals it, then nums[k - 1] equals it too - so the
+//   output already holds two copies and nums[i] would be the third.
+//   If nums[i] is different, it has at most one copy so far - keep it.
 function removeDuplicatesTwice(nums) {
     let k = 2; // write pointer — first two elements are always kept as-is
 
