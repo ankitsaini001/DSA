@@ -147,9 +147,9 @@ function findDuplicateValue(nums) {
     }
     return x + 1;
 }
-console.log(findDuplicateValue([0,0,1,1,1,2,2,3,3,4]));
-console.log(findDuplicateValue([1,1,2]));
-console.log(findDuplicateValue([1, 1, 2, 3, 3, 5]));
+console.log(findDuplicateValue([0,0,1,1,1,2,2,3,3,4])); // 5 -> [0,1,2,3,4]
+console.log(findDuplicateValue([1,1,2])); // 2 -> [1,2]
+console.log(findDuplicateValue([1, 1, 2, 3, 3, 5])); // 4 -> [1,2,3,5]
 console.log(findDuplicateValue([1, 2, 3, 5, 3, 5]));
 
 // function remove duplicate where each unique element is allowed to appear at most twice.
